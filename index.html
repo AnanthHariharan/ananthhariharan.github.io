@@ -167,7 +167,7 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">Great to meet you!</h2>
+          <h2 id="greeting" class="h2 article-title">Great to meet you!</h2>
         </header>
 
         <section class="about-text">
@@ -1152,6 +1152,20 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('greeting');
+      const hour = new Date().getHours();
+      let msg = 'Evening!';
+      if (hour >= 0 && hour < 12) {
+        msg = 'Morning!';
+      } else if (hour >= 12 && hour < 17) {
+        msg = 'Afternoon!';
+      }
+      el.textContent = msg;
+    });
+  </script>
 
 </body>
 
