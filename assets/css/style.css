@@ -32,7 +32,7 @@
     to bottom right, 
     hsla(240, 1%, 18%, 0.251) 0%, 
     hsla(240, 2%, 11%, 0) 100%
-  ), hsl(240, 2%, 13%);
+  ), hsl(240, 1%, 13%);
   --bg-gradient-peacock-1: linear-gradient(
     to bottom right, 
     hsl(180, 50%, 50%) 0%, 
