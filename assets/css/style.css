@@ -317,7 +317,7 @@ article.active {
 .about-text a {
   display: inline !important;   
   white-space: normal;    
-  color: var(--light-peacock)  
+  color: var(--light-peacock);
 }
 
 
