@@ -36,7 +36,7 @@
   --bg-gradient-peacock-1: linear-gradient(
     to bottom right, 
     hsl(180, 50%, 50%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    hsla(36, 100%, 70%, 0) 50%
   );
   --bg-gradient-peacock-2: linear-gradient(
     135deg, 
