@@ -146,7 +146,14 @@ async function mountMap() {
   if (!window.L) await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
 
   // Tear down a previous instance if the user re-enters the map view.
-  if (state.map) { try { state.map.remove(); } catch {} state.map = null; }
+  if (state.map) {
+    try { state.map.instance.remove(); } catch {}
+    try { state.map.observer?.disconnect(); } catch {}
+    state.map = null;
+  }
+
+  // Wait one frame so the wrap's layout dimensions are real before Leaflet measures.
+  await new Promise((r) => requestAnimationFrame(r));
 
   const map = L.map(wrap, {
     zoomControl: true,
@@ -204,13 +211,6 @@ async function mountMap() {
     });
   }
 
-  // Fit to all markers, then add a touch of padding.
-  if (bounds.length === 1) {
-    map.setView(bounds[0], 12);
-  } else {
-    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
-  }
-
   // Delegate popup photo clicks → lightbox.
   map.on("popupopen", (e) => {
     const node = e.popup.getElement();
@@ -219,7 +219,27 @@ async function mountMap() {
     });
   });
 
-  state.map = map;
+  // Fit and reflow after first paint so tile pyramid matches real container size.
+  function applyView() {
+    map.invalidateSize({ pan: false });
+    if (bounds.length === 1) {
+      map.setView(bounds[0], 12);
+    } else {
+      map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+    }
+  }
+  requestAnimationFrame(applyView);
+
+  // Keep tiles aligned with any container/window resize.
+  const onResize = () => map.invalidateSize({ pan: false });
+  window.addEventListener("resize", onResize);
+  let observer = null;
+  if (typeof ResizeObserver !== "undefined") {
+    observer = new ResizeObserver(onResize);
+    observer.observe(wrap);
+  }
+
+  state.map = { instance: map, observer, onResize };
 }
 
 function loadScript(src) {
