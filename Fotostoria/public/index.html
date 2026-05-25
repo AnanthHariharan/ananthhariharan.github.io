@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fotostoria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <h1 class="wordmark">Fotostoria</h1>
+      <nav class="modes" id="modes">
+        <button class="mode-btn" data-mode="albums">Albums</button>
+        <button class="mode-btn" data-mode="collections">Collections</button>
+        <button class="mode-btn" data-mode="map">Map</button>
+      </nav>
+    </header>
+
+    <main id="app"></main>
+
+    <div id="lightbox" class="lightbox" hidden>
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <div class="lightbox-inner">
+        <figure class="lightbox-figure">
+          <img id="lightbox-img" alt="" />
+        </figure>
+        <aside class="lightbox-meta">
+          <label class="field">
+            <span>Title</span>
+            <input id="meta-title" type="text" placeholder="Untitled" />
+          </label>
+          <label class="field">
+            <span>Description</span>
+            <textarea id="meta-description" rows="6" placeholder="What is this photo about?"></textarea>
+          </label>
+          <label class="field">
+            <span>Tags <em>(comma separated)</em></span>
+            <input id="meta-tags" type="text" placeholder="e.g. mountains, sunrise, japan" />
+          </label>
+          <label class="field">
+            <span>Location <em>(lat, lng — optional)</em></span>
+            <input id="meta-location" type="text" placeholder="e.g. 35.6762, 139.6503" />
+          </label>
+          <div class="meta-foot">
+            <span id="meta-status" class="meta-status"></span>
+            <button id="meta-save" class="btn">Save</button>
+          </div>
+          <dl class="meta-info">
+            <dt>Album</dt><dd id="meta-album">—</dd>
+            <dt>File</dt><dd id="meta-file">—</dd>
+            <dt>Taken</dt><dd id="meta-taken">—</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,304 @@
+%-------------------------
+% Resume in Latex
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Ananth Hariharan} \\ \vspace{1pt}\href{mailto:ahari8@illinois.edu}{\underline{ahari8@illinois.edu}} $|$ 
+    \href{https://ananthhariharan.github.io}{\underline{ananthhariharan.github.io}} $|$
+    \small \href{https://linkedin.com/in/ananthh}{\underline{linkedin.com/in/ananthh}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Illinois Urbana-Champaign}{Urbana, IL}
+      {Bachelor of Science in Computer Science and Statistics | GPA: 3.71}{Aug. 2022 -- Dec. 2025}
+      \resumeItemListStart
+        %\resumeItem{\textbf{GPA}: 3.75}
+        \resumeItem
+        {\textbf{Honors \& Awards}: Department Student Ambassador, National Merit Finalist, NMSC Scholar} 
+        \resumeItem
+        {\textbf{Coursework (400-level)}: Artificial Intelligence, Bayesian Analysis, Computer Vision, Database Systems, Deep Learning, Distributed Systems, Ethics in AI, Logic in CS, Machine Learning, ML Systems, Numerical Methods, Programming Languages \& Compilers, Statistics \& Probability I \& II, Statistical Modeling I \& II} 
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+\textbf{Programming Languages:} Python, C, C++, Go, Java, JavaScript, MATLAB, SQL, Swift, Terraform\\
+\textbf{Frameworks \& Tools:} PyTorch, TensorFlow, Keras, Scikit-learn, NLTK, AWS, React, Node.js, Vue.js
+
+%-----------RESEARCH EXPERIENCE-----------
+\section{Research Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {CMU ChangeLing Group}{July 2025 -- Dec 2025}
+      {Research Assistant \textbar \space Advised by David Mortensen \textbar \space \href{https://arxiv.org/abs/2512.05364}{\underline{Publication}}}
+      {Carnegie Mellon University}
+      \resumeItemListStart
+        \resumeItem{Engineered a weakly-supervised framework for low-resource diachronic analysis, leveraging 100+ features to generate $\approx50,000$ pseudo-labels for fine-tuning mBERT architecture with a dedicated confidence estimation head.}
+        \resumeItem{Deployed a confidence-weighted ensemble fusing symbolic and neural predictions to analyze a 1.47M-word Sanskrit corpus, achieving 87.3\% F1 on a gold-standard validation set and high calibration (ECE=0.043).}
+      \resumeItemListEnd
+
+  \resumeSubheading
+      {Conversational AI Group}{Mar 2024 -- Dec 2025}
+      {Research Assistant \textbar \space Advised by Gokhan Tur, Dilek Hakkani-T\"ur \textbar \space \href{https://arxiv.org/pdf/2509.02761}{\underline{Publication}}}
+      {University of Illinois}
+      \resumeItemListStart
+        \resumeItem{Designed and implemented a novel multi-agent LLM framework using a "Judge-Planner" conversational architecture to iteratively verify and refine noisy, human-authored task plans for embodied AI.}
+        \resumeItem{Authored a novel, ground-truth annotated dataset from the TEACh corpus to conduct a systematic, comparative analysis of four SOTA LLM agents, establishing a new performance baseline (100\% precision and 90\% recall).}
+        \resumeItem{Engineered a scalable, zero-shot data preprocessing pipeline, analyzing and validating its computational efficiency (96.5\% convergence in $\leq$3 iterations) to improve training data quality for downstream imitation learning policies.}
+      \resumeItemListEnd
+
+    \resumeSubheading{DEPEND Research Group}{Nov 2024 -- April 2025}{Research Assistant \textbar \space Advised by Ravishankar Iyer, Anirudh Choudhary}{University of Illinois}
+    \resumeItemListStart
+        \resumeItem{Designed production-grade models to interpret medical scans in collaboration with Mayo Clinic and Carle Health.}
+        \resumeItem{Created vision transformers for cancer detection via tumorous cell simulation on pathology datasets via DinoV2.}
+        \resumeItem{Built Histomics software platform components supporting scan interaction and image algorithm processing.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Computer Vision Group}{Jan 2024 -- Oct 2024}
+      {Research Assistant \textbar \space Advised by Derek Hoeim, Sethuraman TV}{University of Illinois}
+      \resumeItemListStart
+        \resumeItem{Built continuous-time liquid time-constant neural network framework for dynamic computer vision systems.}
+        \resumeItem{Researched image-to-simulation computer vision system to detect and simulate physical materials from images.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Illinois Risk Lab}{Jan 2023 -- May 2023}
+      {Undergraduate Researcher \textbar \space Advised by Xiaochen Jing}{University of Illinois}
+      \resumeItemListStart
+        \resumeItem{Trained representation learning models for insurance claim evaluation, matching actuarial benchmarks at 84.6\%.}
+        \resumeItem{Designed a hierarchical attention network model to quantitatively weight risk factors via relational semantics.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {National Center for Supercomputing Applications}{Jun 2021 -- Aug 2021}
+      {Research Intern \textbar \space Advised by Daniel Katz, Ben Clifford \textbar \space \href{https://parsl-project.org/parslfest2021-files/hariharan-eeps.pdf}{\underline{Presentation}}} {University of Illinois}
+      \resumeItemListStart
+        \resumeItem{Developed efficiency evaluation program for parallel scripted function library in Python (Parsl).}
+        \resumeItem{Constructed a graphical tool for multi-core cost/time evaluation, supporting NCSA research operations.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+\resumeSubHeadingListStart
+      \resumeSubheading
+      {Founding AI Engineer}{January 2026 -- Present}
+      {Blee Inc.}{Palo Alto, CA (Hybrid)}
+      \resumeItemListStart
+        \resumeItem{Building machine learning systems for legal \& compliance pipelines.}
+        \resumeItem{Leading customer deployments and ML group R\&D.}    
+      \resumeItemListEnd
+    
+      \resumeSubheading
+      {Technical Co-Founder}{April 2025 -- August 2025}
+      {Bimini AI}{Palo Alto, CA (Hybrid)}
+      \resumeItemListStart
+        \resumeItem{Built HIPAA-compliant healthcare platform enabling patient scheduling, medication tracking, and follow-ups via custom LLaMA agentic system for each patient trained on clinical data as web and mobile application.}
+        \resumeItem{Deployed on AWS Bedrock/Kendra infrastructure for iOS applications with 97.3\% uptime, serving 40+ clinics.}
+      \resumeItemListEnd
+    
+      \resumeSubheading
+      {Machine Learning Engineering Intern}{Jan 2024 -- April 2025}
+      {Bimini AI}{Palo Alto, CA (Remote)}
+      \resumeItemListStart
+        \resumeItem{Led intern team to develop proprietary ML model for ICL surgery accuracy improvement using OCT images}
+        \resumeItem{Built lens placement calculation model using DeIT vision model and Pytorch with 96.5\% accuracy}
+        \resumeItem{Created data management pipelines for ophthalmology clinics nationwide to integrate ICL surgery scans}
+        \resumeItem{Built EHR form scanning tool to fill in patient log systems, scanning low-quality report images with 87\% accuracy}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineering Intern}{May 2022 -- Aug 2023}
+      {State Farm}{Bloomington, IL}
+      \resumeItemListStart
+        \resumeItem{Developed insurance quote application for disability insurance rating, impacting 1.5M+ policies nationwide.}
+        \resumeItem{Improved algorithms for multiline investment, health, \& life insurance policies, increasing efficiency by 16\%}
+        \resumeItem{Worked on cloud infrastructure research, focusing on AWS \& Azure viability and efficiency across departments.}
+        \resumeItem{Built and maintained database tool for department access to customer home \& auto information, improving application running efficiency by 65\% through AWS cloud infrastructure and JS-based platform migrations.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+%-----------ORGANIZATIONS-----------
+\section{Organizations}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Campus Sanskrit Network} $|$ \emph{President (2024-25), Treasurer (2022-23)}}{2022 – 2025}
+          \resumeItemListStart
+            \resumeItem{Founded student organization teaching Sanskrit language, literature, and culture. Grew membership to 150+ students, taught weekly classes, and organized community cultural events.}
+            \resumeItemListEnd
+
+    \resumeProjectHeading
+          {\textbf{Association for Computing Machinery (ACM)} $|$ \emph{Project Lead}}{2022 – 2023}
+          \resumeItemListStart
+            \resumeItem{Automated pipelines for ACM UIUC’s computing infrastructure, improving efficiency and reducing manual intervention. Debugged and optimized network infrastructure protocols to enhance system reliability and performance. Built and maintained internal tooling systems, streamlining operational workflows.}
+          \resumeItemListEnd
+          
+      \resumeProjectHeading
+          {\textbf{SIGNLL@UIUC} $|$ \emph{Project Developer}}{2022 – 2023}
+          \resumeItemListStart
+            \resumeItem{Engineered ARIMA-based predictive modelling program that integrates NLP sentiment analysis model of news headlines. Integrated CNBC market tracking APIs and implemented stochastic \& regression modelling techniques with XGBoost classifiers in Python to forecast stock market trends.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+          {\textbf{Trevi} $|$ \emph{Python} $|$ \href{https://github.com/AnanthHariharan/Trevi}{\underline{\textit{Repository}}}}
+          {2025}
+          \resumeItemListStart
+            \resumeItem{Developed research framework for combining meta-learning with hierarchical reinforcement learning (RL) to learn reusable skills that can be quickly composed for complex, long-horizon tasks.}
+            \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{RLStats} $|$ \emph{Python} $|$
+          \href{https://github.com/AnanthHariharan/RLstats}{\underline{\textit{Repository}}}}
+          {2024}
+          \resumeItemListStart
+            \resumeItem{Created statistical tools specifically designed for evaluating and comparing RL algorithms, helping users answer critical questions with statistical confidence rather than relying on single runs or eyeballing results.}
+            \resumeItemListEnd
+
+    \resumeProjectHeading
+          {\textbf{Toonify} $|$ \emph{C++} $|$ \href{https://github.com/balaji-balachandran/Toonify}{\underline{\textit{Repository}}}}
+          {2023}
+          \resumeItemListStart
+            \resumeItem{Algorithmic image segmentation program using simple linear iterative clustering (SLIC) based superpixeling algorithm to turn images into retro-style cartoons via visual feature capture and object recognition.}
+          \resumeItemListEnd
+
+     \resumeProjectHeading
+          {\textbf{CLOVIS} $|$ \emph{Java} $|$ \emph{\hyperlink{https://github.com/AnanthHariharan/CLOVIS}{GitHub}}}{2022}
+          \resumeItemListStart
+            \resumeItem{Made comprehensive
+text-based application designed for quarantined patients, featuring
+disease symptom matching, an integrated chatbot, and a virtual football
+match simulator; \textbf{1st Place} at CodeDay Hackathon.}
+          \resumeItemListEnd
+
+    \resumeProjectHeading
+          {\textbf{EdConnect} $|$ \emph{HTML/CSS, Javascript} $|$ \emph{\hyperlink{edconnectnow.org}{Link}}}{2022}
+          \resumeItemListStart
+            \resumeItem{Led team to design and develop dynamic custom API-powered web interface for non-profit focused on enhancing educational accessibility in underserved communities around Greater Atlanta, \textbf{2nd Place} at national 48in48 event.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+%-----------PROJECTS-----------
+\section{Publications}
+\textbf{A. Hariharan}, V. Dongre, D. Hakkani-Tür, and G. Tur. "Plan Verification for LLM-Based Embodied Task Completion Agents." In NeurIPS 2025 Workshop on Embodied World Models for Decision Making.\\
+
+\textbf{A. Hariharan}, D. Mortensen. "Transformer-Enabled Diachronic Analysis of Vedic Sanskrit: Neural Methods for Quantifying Types of Language Change." In Language Resources and Evaluation Conference 2026.
+
+
+%-------------------------------------------
+\end{document}

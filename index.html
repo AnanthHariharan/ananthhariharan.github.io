@@ -1,1252 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ananth's Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ananth Hariharan — Founding AI Engineer at Blee. Machine learning for legal & compliance, prior research across NLP, computer vision, and reinforcement learning." />
+  <meta name="author" content="Ananth Hariharan" />
+  <title>Ananth Hariharan</title>
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/monogram.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/monogram.png" type="image/x-icon" />
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Ananth Hariharan" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Ananth Hariharan">Ananth Hariharan</h1>
-
-          <p class="title">My CV</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="laptop-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Bimini AI</p>
-              <p class="contact-link">CTO &amp; Co-Founder</p>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="school-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">University of Illinois Urbana-Champaign</p>
-              <p class="contact-link">BS in Statistics &amp;<br>Computer Science</p>
-            </div>
-          </li>
-
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="brand-mark">A·H</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#photography">Photography</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="projects">Projects</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="blog">What I'm Learning</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
       </nav>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
+  <main id="main">
 
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Founding AI Engineer · Blee</p>
+        <h1 class="display">Ananth Hariharan</h1>
+        <p class="lede">
+          I build machine learning systems for the messiest, highest-stakes parts
+          of professional work — currently at <a class="lede-link" href="https://blee.com" target="_blank" rel="noopener">Blee</a>,
+          designing ML pipelines for legal &amp; compliance.
+        </p>
+        <div class="hero-meta">
+          <span>San Francisco, CA</span>
+          <span class="dot" aria-hidden="true">·</span>
+          <span>B.S. Computer Science &amp; Statistics, UIUC ’25</span>
+        </div>
+      </div>
+    </section>
 
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 id="greeting" class="h2 article-title">Great to meet you!</h2>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">01</span>
+          <h2 class="section-title">About</h2>
         </header>
 
-        <section class="about-text">
+        <div class="prose">
           <p>
-            I'm Ananth! As co-founder at Bimini AI, I'm working on bringing effective, reliable, and game-changing machine learning reinforcement learning to the world of ophthalmology and medicine more broadly. As an ML engineer with a research background across disciplines, I thrive on tackling complex ideas and turning them into practical machine learning solutions.
+            I'm Ananth — an ML engineer and researcher. Today I'm the founding AI
+            engineer at <strong>Blee</strong>, where I lead the development of machine
+            learning systems for legal and compliance workflows and run customer
+            deployments alongside our ML R&amp;D.
           </p>
-
           <p>
-            I specialize in building end-to-end ML-focused solutions and enjoy applying these skills in fast-paced, practical environments. When I'm not at my desk pushing the next commit, reading about the latest AI developments, or experimenting with new algorithms and reinforcement learning, I'm trying to make sense of the world around me.
+            Before Blee I co-founded <strong>Bimini AI</strong>, a healthcare ML
+            company, where I built HIPAA-compliant clinical infrastructure and led an
+            intern team on proprietary vision models for ICL surgery — that work
+            began as my internship there during undergrad and grew into a co-founding
+            role.
           </p>
-
           <p>
-            Whether it's <a href="https://ananthhariharan.substack.com" target="_blank" rel="noopener">musing about philosophy</a>, <a href="https://the-still-point.ghost.io" target="_blank" rel="noopener">exploring the arts</a>, or <a href="https://ahari8.myportfolio.com" target="_blank" rel="noopener">capturing snippets of the places I visit</a>, I'm on the lookout for inspiration anywhere!
+            On the research side I've worked across NLP, computer vision, embodied AI,
+            and computational historical linguistics — most recently with the
+            ChangeLing group at CMU and the Conversational AI group at UIUC. Two
+            first-author publications are below.
           </p>
-        </section>
-
-
-        <!--
-          - What I'm Doing
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm Doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="code-slash-outline"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">End-to-End ML Pipelines</h4>
-                <p class="service-item-text">
-                  Architecting data ingestion, annotation, model training and deployment for seamless integration, turning an idea into a production-ready machine learning solution.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="eye-outline"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Computer Vision for Ophthalmology</h4>
-                <p class="service-item-text">
-                  Developing deep learning models for corneal scan analysis, anomaly detection, and lens placement to assist surgeons in real time.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="cloud-outline"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Cloud-Native Infrastructure</h4>
-                <p class="service-item-text">
-                  Designing scalable, secure back-end systems (Supabase/Postgres, AWS Lambda, Kubernetes) for model serving and data management.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="documents-outline"></ion-icon>
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Research &amp; Rapid Prototyping</h4>
-                <p class="service-item-text">
-                  Translating cutting-edge research into working proofs-of-concept, iterating quickly to stay ahead for reliable, customer-focused solutions.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-        -->
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
         </div>
 
+        <div class="skill-grid">
+          <div>
+            <p class="skill-label">Languages</p>
+            <p>Python · C / C++ · Go · Java · JavaScript · MATLAB · SQL · Swift · Terraform</p>
+          </div>
+          <div>
+            <p class="skill-label">Frameworks &amp; Tools</p>
+            <p>PyTorch · TensorFlow · Keras · Scikit-learn · NLTK · AWS · React · Node.js · Vue.js</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!--
-          - clients
-        -->
-
-
-
-      </article>
-
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Experience</h2>
         </header>
 
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
+        <ol class="timeline">
+          <li class="timeline-item timeline-item--current">
+            <div class="timeline-when">Jan 2026 — Present</div>
+            <div class="timeline-what">
+              <h3>Blee Inc. <span class="badge">Current</span></h3>
+              <p class="role">Founding AI Engineer · San Francisco, CA</p>
+              <ul class="bullets">
+                <li>Building machine learning systems for legal &amp; compliance pipelines.</li>
+                <li>Leading customer deployments and ML group R&amp;D.</li>
+              </ul>
             </div>
+          </li>
 
-            <h3 class="h3">Work Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Bimini AI – Chief Technology Officer, Technical Co-Founder</h4>
-
-              <span>Apr 2025 — Present</span>
-
-              <p class="timeline-text">
-                Spearheading development of SightSync, an end-to-end machine learning platform for ophthalmology clinics, and OpenCare, a clinical service offering bespoke models for patient care.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Bimini AI – Machine Learning Intern</h4>
-
-              <span>Jan 2024 — Apr 2025</span>
-
-              <p class="timeline-text">
-                Developed and deployed vision models assisting eye surgeons for ICL placement and surgical planning, built voice-based EMR system using fine-tuned LLM agents.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">State Farm – Software Engineering Intern</h4>
-
-              <span>May 2023 — August 2023</span>
-
-              <p class="timeline-text">
-                Wrote a customer-facing insurance quote application capable of evaluating and updating multiline policy structures in real-time, used for over 1.5 million policies across the United States for the Health, Life, and Investment Planning Services Division.
-              </p>
-
-              <span>May 2022 — May 2023</span>
-
-              <p class="timeline-text">
-                Built and maintained an internal database management system for customer policy data and worked on platform migrations from IBM WebSphere using Vue.js, Gradle, and AWS services alongside internal cloud-focused R&D for the Customer Communications Division.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="document-text-outline"></ion-icon>
+          <li class="timeline-item">
+            <div class="timeline-when">Apr 2025 — Aug 2025</div>
+            <div class="timeline-what">
+              <h3>Bimini AI</h3>
+              <p class="role">Technical Co-Founder · Palo Alto, CA</p>
+              <ul class="bullets">
+                <li>Built a HIPAA-compliant healthcare platform for patient scheduling, medication tracking, and follow-ups, powered by a per-patient LLaMA agentic system trained on clinical data; shipped as both web and mobile.</li>
+                <li>Deployed on AWS Bedrock / Kendra for iOS with 97.3% uptime, serving 40+ clinics.</li>
+              </ul>
             </div>
+          </li>
 
-            <h3 class="h3">Research Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Carnegie Mellon University – Research Assistant</h4>
-              <h5 class="italic-heading">Advised by David Mortensen</h5>
-              <span>Mar 2024 — Present</span>
-              <p class="timeline-text">
-                Building diachronic computational models to detect & track PIE-Vedic linguistic features’ evolution.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Conversational AI Group – Research Assistant</h4>
-              <h5 class="italic-heading">Advised by Dilek Hakkani-Tur &amp; Gokhan Tur</h5>
-              <span>Jun 2025 — Present</span>
-              <p class="timeline-text">
-                Collaborated with Nvidia to build and deploy TEACh-based dialogue and planning models, training and tuning HuggingFace models in Dockerized 3D simulations and fine-tuning adapters for action-sequence generation via RAG.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">DEPEND Research Group – Research Assistant</h4>
-              <h5 class="italic-heading">Advised by Ravishankar Iyer &amp; Anirudh Choudhary</h5>
-              <span>Nov 2024 — Apr 2025</span>
-              <p class="timeline-text">
-                Designing vision algorithms for medical scan interpretation and disease simulation, fine-tuning transformers for cancer detection on pathology datasets, and developing core components of the Histomics platform.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Computer Vision Group – Research Assistant</h4>
-              <h5 class="italic-heading">Advised by Derek Hoeim &amp; Sethuraman T V</h5>
-              <span>Jan 2024 — Oct 2024</span>
-              <p class="timeline-text">
-                Developed a liquid time-constant neural network framework for dynamic vision systems and prototyped image-to-simulation tools for detecting and simulating physical materials.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Illinois Risk Lab – Undergraduate Researcher</h4>
-              <h5 class="italic-heading">Advised by Xiaochen Jing</h5>
-              <span>Jan 2023 — May 2023</span>
-              <p class="timeline-text">
-                Engineered representation learning and hierarchical attention network models to evaluate insurance claim risk factors and quantitative weighting.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">National Center for Supercomputing Reinforcement Learning – Undergraduate Researcher</h4>
-              <h5 class="italic-heading">Advised by Daniel Katz &amp; Ben Clifford</h5>
-              <span>Jun 2021 — Aug 2021</span>
-              <p class="timeline-text">
-                Developed a Parsl-based efficiency evaluation program for parallel Python functions, built a graphical multi-core performance analysis tool, and presented findings at ParslFest.
-              </p>
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+          <li class="timeline-item">
+            <div class="timeline-when">Jan 2024 — Apr 2025</div>
+            <div class="timeline-what">
+              <h3>Bimini AI</h3>
+              <p class="role">Machine Learning Engineering Intern · Remote</p>
+              <ul class="bullets">
+                <li>Led the intern team building a proprietary ML model that improved ICL surgery accuracy from OCT images.</li>
+                <li>Built a lens-placement calculation model using DeiT + PyTorch reaching 96.5% accuracy.</li>
+                <li>Created data pipelines integrating ICL surgery scans from ophthalmology clinics nationwide.</li>
+                <li>Built an EHR form scanner reading low-quality report images with 87% accuracy.</li>
+              </ul>
             </div>
-
-            <h3 class="h3">Cocurricular Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Campus Sanskrit Network</h4>
-
-              <span>Oct 2022 — Present</span>
-
-              <p class="timeline-text">
-                President (2023-25), Treasurer (2022-23) of the Campus Sanskrit Network, a student-led organization dedicated to promoting Sanskrit language, literature, and culture. Developed a comprehensive curriculum, taught Sanskrit and Bhagavad Gita classes, organized monthly cultural events, and grew organization to 100+ members.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Association of Computing Machinery</h4>
-
-              <span>Oct 2022 — May 2023</span>
-
-              <p class="timeline-text">
-                Streamlined ACM UIUC computing infrastructure by automating backend pipelines and crafting internal tooling to reduce manual overhead and accelerate deployments, while diagnosing and debugging network protocols to bolster system reliability and performance.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Special Interest Group on Natural Language Learning (SIGNLL)</h4>
-
-              <span>Sept 2022 — Apr 2023</span>
-
-              <p class="timeline-text">
-                Engineered ARIMA-based predictive modelling program that integrates NLP sentiment analysis model of news headlines, integrating CNBC market tracking APIs and stochastic & regression modelling techniques with XGBoost classifiers in Python to forecast trends.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <!--
-          - skills
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Agentic AI</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-        -->
-        
-          
-        
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Skills</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/computer.png" alt="PLs" width="50" data-testimonials-avatar style="padding: 13px;">
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Programming Languages</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Python, C, C++, Go, Java, JavaScript (React.js, Vue.js, Node.js), MATLAB, SQL, Swift, Terraform
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/robot_face.png" alt="MLs" width="50" data-testimonials-avatar style="padding: 13px;">
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Machine Learning</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    PyTorch, TensorFlow, Keras, Scikit-learn, XGBoost, OpenCV, HuggingFace, LLM RAGs
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/gear.png" alt="FWs" width="50" data-testimonials-avatar style="padding: 13px;">
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Frameworks</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    AWS (Lambda, S3, EC2, SageMaker), Docker, Kubernetes, Supabase, PostgreSQL, SpringBoot
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/globe_with_meridians.png" alt="Langs" width="50" data-testimonials-avatar style="padding: 13px;">
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Languages</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    English, Tamil, Sanskrit, Hindi, French, Latin
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-        
-
-      </article>
-
-
-
-
-
-      <!--
-        - #PROJECTS
-      -->
-
-      <article class="portfolio" data-page="projects">
-
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-when">May 2022 — Aug 2023</div>
+            <div class="timeline-what">
+              <h3>State Farm</h3>
+              <p class="role">Software Engineering Intern · Bloomington, IL</p>
+              <ul class="bullets">
+                <li>Developed an insurance quoting application for disability rating, impacting 1.5M+ policies nationwide.</li>
+                <li>Improved algorithms across multiline investment, health, and life products — +16% efficiency.</li>
+                <li>Cloud infrastructure research on AWS &amp; Azure viability across departments.</li>
+                <li>Built a department-facing database tool for customer home &amp; auto data, +65% efficiency via AWS migration.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Research</h2>
         </header>
 
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Agentic AI</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Reinforcement Learning</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Healthcare ML</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Computational Linguistics</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Agentic AI</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Reinforcement Learning</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Healthcare ML</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="healthcare ml">
-              <a href="https://opencare-dusky.vercel.app/">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.png" alt="opencare" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">OpenCare</h3>
-
-                <p class="project-category">Healthcare ML</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="healthcare ml">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="opencare (ios)" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Opencare (iOS)</h3>
-
-                <p class="project-category">Healthcare ML</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="agentic ai">
-              <a href="https://arxiv.org/pdf/2509.02761">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.png" alt="task agents" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Agents</h3>
-
-                <p class="project-category">Agentic AI</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="reinforcement learning">
-              <a href="https://github.com/AnanthHariharan/Trevi">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="trevi" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Trevi</h3>
-
-                <p class="project-category">Reinforcement Learning</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="computational linguistics">
-              <a href="https://github.com/AnanthHariharan/Shrauta-Lakshana">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="shrauta lakshana" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Shrauta Lakshana</h3>
-
-                <p class="project-category">Computational Linguistics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="agentic ai">
-              <a href="https://github.com/AnanthHariharan/RLStats">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="rlstats" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">RLStats</h3>
-
-                <p class="project-category">Reinforcement Learning</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="healthcare ml">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Healthcare ML</p>
-
-              </a>
-            </li>
-
-
-
-            <li class="project-item  active" data-filter-item data-category="healthcare ml">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Healthcare ML</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">What I'm Learning</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+        <div class="prose">
+          <p>
+            Six research positions across five groups during my undergrad —
+            spanning computational historical linguistics, conversational AI,
+            medical imaging, computer vision, actuarial modeling, and HPC.
+          </p>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-when">Jul 2025 — Dec 2025</div>
+            <div class="timeline-what">
+              <h3>CMU ChangeLing Group</h3>
+              <p class="role">Research Assistant · Carnegie Mellon · w/ David Mortensen</p>
+              <ul class="bullets">
+                <li>Engineered a weakly-supervised framework for low-resource diachronic analysis, generating ≈50,000 pseudo-labels from 100+ features to fine-tune mBERT with a dedicated confidence-estimation head.</li>
+                <li>Deployed a confidence-weighted ensemble fusing symbolic and neural predictions over a 1.47M-word Sanskrit corpus — 87.3% F1 on gold validation, ECE = 0.043.</li>
+              </ul>
+              <p class="paper-link"><a class="link" href="https://arxiv.org/abs/2512.05364" target="_blank" rel="noopener">→ Publication (arXiv)</a></p>
             </div>
+          </li>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+          <li class="timeline-item">
+            <div class="timeline-when">Mar 2024 — Dec 2025</div>
+            <div class="timeline-what">
+              <h3>Conversational AI Group</h3>
+              <p class="role">Research Assistant · UIUC · w/ Gokhan Tur, Dilek Hakkani-Tür</p>
+              <ul class="bullets">
+                <li>Designed a multi-agent LLM framework with a "Judge–Planner" conversational architecture to iteratively verify and refine noisy human-authored task plans for embodied AI.</li>
+                <li>Authored a ground-truth annotated dataset from the TEACh corpus and ran a systematic comparison of four SOTA LLM agents, establishing a baseline of 100% precision / 90% recall.</li>
+                <li>Built a scalable zero-shot preprocessing pipeline (96.5% convergence in ≤ 3 iterations) to improve training data for downstream imitation-learning policies.</li>
+              </ul>
+              <p class="paper-link"><a class="link" href="https://arxiv.org/pdf/2509.02761" target="_blank" rel="noopener">→ Publication (arXiv)</a></p>
+            </div>
+          </li>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+          <li class="timeline-item">
+            <div class="timeline-when">Nov 2024 — Apr 2025</div>
+            <div class="timeline-what">
+              <h3>DEPEND Research Group</h3>
+              <p class="role">Research Assistant · UIUC · w/ Ravi Iyer, Anirudh Choudhary</p>
+              <ul class="bullets">
+                <li>Designed production-grade models to interpret medical scans in collaboration with Mayo Clinic and Carle Health.</li>
+                <li>Built vision transformers for cancer detection via tumorous-cell simulation on pathology datasets using DINOv2.</li>
+                <li>Contributed components to the Histomics platform for scan interaction and image algorithm processing.</li>
+              </ul>
+            </div>
+          </li>
 
-          </form>
+          <li class="timeline-item">
+            <div class="timeline-when">Jan 2024 — Oct 2024</div>
+            <div class="timeline-what">
+              <h3>Computer Vision Group</h3>
+              <p class="role">Research Assistant · UIUC · w/ Derek Hoiem, Sethuraman TV</p>
+              <ul class="bullets">
+                <li>Built a continuous-time liquid time-constant neural network framework for dynamic computer vision systems.</li>
+                <li>Researched an image-to-simulation system for detecting and simulating physical materials from images.</li>
+              </ul>
+            </div>
+          </li>
 
-        </section>
+          <li class="timeline-item">
+            <div class="timeline-when">Jan 2023 — May 2023</div>
+            <div class="timeline-what">
+              <h3>Illinois Risk Lab</h3>
+              <p class="role">Undergraduate Researcher · UIUC · w/ Xiaochen Jing</p>
+              <ul class="bullets">
+                <li>Trained representation-learning models for insurance claim evaluation, matching actuarial benchmarks at 84.6%.</li>
+                <li>Designed a hierarchical attention network to quantitatively weight risk factors via relational semantics.</li>
+              </ul>
+            </div>
+          </li>
 
-      </article>
+          <li class="timeline-item">
+            <div class="timeline-when">Jun 2021 — Aug 2021</div>
+            <div class="timeline-what">
+              <h3>National Center for Supercomputing Applications</h3>
+              <p class="role">Research Intern · UIUC · w/ Daniel Katz, Ben Clifford</p>
+              <ul class="bullets">
+                <li>Developed an efficiency evaluation program for the Parsl parallel scripting library in Python.</li>
+                <li>Built a graphical tool for multi-core cost/time evaluation supporting NCSA research operations.</li>
+              </ul>
+              <p class="paper-link"><a class="link" href="https://parsl-project.org/parslfest2021-files/hariharan-eeps.pdf" target="_blank" rel="noopener">→ ParslFest 2021 presentation</a></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Publications</h2>
+        </header>
+
+        <ol class="pub-list">
+          <li>
+            <p class="pub-title">Plan Verification for LLM-Based Embodied Task Completion Agents</p>
+            <p class="pub-authors"><strong>A. Hariharan</strong>, V. Dongre, D. Hakkani-Tür, G. Tur</p>
+            <p class="pub-venue">NeurIPS 2025 Workshop on Embodied World Models for Decision Making</p>
+            <p><a class="link" href="https://arxiv.org/pdf/2509.02761" target="_blank" rel="noopener">arXiv:2509.02761</a></p>
+          </li>
+          <li>
+            <p class="pub-title">Transformer-Enabled Diachronic Analysis of Vedic Sanskrit: Neural Methods for Quantifying Types of Language Change</p>
+            <p class="pub-authors"><strong>A. Hariharan</strong>, D. Mortensen</p>
+            <p class="pub-venue">Language Resources and Evaluation Conference (LREC) 2026</p>
+            <p><a class="link" href="https://arxiv.org/abs/2512.05364" target="_blank" rel="noopener">arXiv:2512.05364</a></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Projects</h2>
+        </header>
+
+        <div class="prose">
+          <p>
+            Open-source code and side projects from research and hackathons. More on
+            <a class="link" href="https://github.com/AnanthHariharan" target="_blank" rel="noopener">GitHub</a>.
+          </p>
+        </div>
+
+        <ul class="project-grid">
+          <li class="project-card">
+            <a href="https://github.com/AnanthHariharan/Trevi" target="_blank" rel="noopener">
+              <div class="project-tags"><span>Python</span><span>2025</span></div>
+              <h3>Trevi</h3>
+              <p>Research framework combining meta-learning with hierarchical RL to learn reusable skills that compose into long-horizon tasks.</p>
+              <span class="project-meta">github.com/AnanthHariharan/Trevi →</span>
+            </a>
+          </li>
+          <li class="project-card">
+            <a href="https://github.com/AnanthHariharan/RLstats" target="_blank" rel="noopener">
+              <div class="project-tags"><span>Python</span><span>2024</span></div>
+              <h3>RLStats</h3>
+              <p>Statistical tools for evaluating and comparing RL algorithms with proper confidence intervals — beyond eyeballing single runs.</p>
+              <span class="project-meta">github.com/AnanthHariharan/RLstats →</span>
+            </a>
+          </li>
+          <li class="project-card">
+            <a href="https://github.com/balaji-balachandran/Toonify" target="_blank" rel="noopener">
+              <div class="project-tags"><span>C++</span><span>2023</span></div>
+              <h3>Toonify</h3>
+              <p>Image segmentation program using SLIC superpixeling to turn photographs into retro-style cartoons.</p>
+              <span class="project-meta">github.com/balaji-balachandran/Toonify →</span>
+            </a>
+          </li>
+          <li class="project-card">
+            <a href="https://github.com/AnanthHariharan/CLOVIS" target="_blank" rel="noopener">
+              <div class="project-tags"><span>Java</span><span>2022</span><span class="award">1st · CodeDay</span></div>
+              <h3>CLOVIS</h3>
+              <p>Text-based app for quarantined patients: symptom matching, integrated chatbot, and a virtual football simulator. 1st Place at CodeDay Hackathon.</p>
+              <span class="project-meta">github.com/AnanthHariharan/CLOVIS →</span>
+            </a>
+          </li>
+          <li class="project-card">
+            <a href="https://edconnectnow.org" target="_blank" rel="noopener">
+              <div class="project-tags"><span>HTML / JS</span><span>2022</span><span class="award">2nd · 48in48</span></div>
+              <h3>EdConnect</h3>
+              <p>API-powered web interface for an Atlanta-area educational-access nonprofit. Led team; 2nd Place at national 48in48.</p>
+              <span class="project-meta">edconnectnow.org →</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">06</span>
+          <h2 class="section-title">Writing</h2>
+        </header>
+
+        <div class="prose">
+          <p>
+            Occasional essays on machine learning, applied research, and adjacent
+            topics. Everything lives on Substack — long-form when the idea
+            warrants it, short otherwise.
+          </p>
+        </div>
+
+        <a
+          class="substack-card"
+          href="https://ananthhariharan.substack.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="substack-card-meta">
+            <span class="substack-tag">Substack</span>
+            <span class="substack-handle">ananthhariharan.substack.com</span>
+          </div>
+          <h3 class="substack-card-title">Read &amp; subscribe on Substack</h3>
+          <p class="substack-card-sub">
+            New posts arrive by email when I publish.
+          </p>
+          <span class="substack-card-cta">Visit publication →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">07</span>
+          <h2 class="section-title">Photography</h2>
+        </header>
+
+        <div class="prose">
+          <p>
+            A slowly-curated set of photographs — mostly made while traveling or
+            walking around with whatever camera is closest. A handful below; the
+            full library lives in its own viewer.
+          </p>
+        </div>
+
+        <div class="photo-grid" data-photo-teaser>
+          <!-- Filled at runtime from /public-photos/photos.json. Falls back to placeholders if missing. -->
+          <figure class="photo-tile photo-tile--tall"><span class="photo-placeholder">Loading…</span></figure>
+          <figure class="photo-tile"><span class="photo-placeholder">Loading…</span></figure>
+          <figure class="photo-tile"><span class="photo-placeholder">Loading…</span></figure>
+          <figure class="photo-tile photo-tile--wide"><span class="photo-placeholder">Loading…</span></figure>
+          <figure class="photo-tile"><span class="photo-placeholder">Loading…</span></figure>
+          <figure class="photo-tile"><span class="photo-placeholder">Loading…</span></figure>
+        </div>
+
+        <p class="photo-cta">
+          <a class="link" href="./photos/">View the full library →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Lightbox shared by teaser -->
+    <div id="teaser-lightbox" class="teaser-lightbox" hidden>
+      <button class="teaser-lightbox-close" aria-label="Close">&times;</button>
+      <figure class="teaser-lightbox-figure">
+        <img id="teaser-lightbox-img" alt="" />
+        <figcaption id="teaser-lightbox-cap"></figcaption>
+      </figure>
     </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">08</span>
+          <h2 class="section-title">Contact</h2>
+        </header>
+
+        <div class="contact-wrap">
+          <div class="prose contact-prose">
+            <p>
+              Drop me a note. I'm happy to hear from people working on machine
+              learning in industry, applied research, or anything genuinely
+              curious.
+            </p>
+            <ul class="contact-links">
+              <li><a class="link" href="https://github.com/AnanthHariharan" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a class="link" href="https://linkedin.com/in/ananthh" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a class="link" href="mailto:ananthhariharan1@gmail.com">Email directly</a></li>
+            </ul>
+          </div>
+
+          <!--
+            Form posts to Formspree (https://formspree.io). To activate:
+              1. Sign up (free tier: 50 submissions/mo), create a form.
+              2. Replace YOUR_FORM_ID below with your form's ID.
+            Until then, the form falls back to opening the user's email client
+            via mailto: (handled in script.js).
+          -->
+          <form
+            class="contact-form"
+            data-contact-form
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
+            <label class="field">
+              <span class="field-label">Name</span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label class="field">
+              <span class="field-label">Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <!-- honeypot for spam bots -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
+            <div class="form-foot">
+              <p class="form-status" data-form-status aria-live="polite"></p>
+              <button type="submit" class="form-submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
   </main>
 
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year></span> Ananth Hariharan</p>
+      <p class="footer-meta">Built by hand. Set in Spectral.</p>
+    </div>
+  </footer>
 
-
-
-
-
-  <!--
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const el = document.getElementById('greeting');
-      const hour = new Date().getHours();
-      let msg = 'Evening!';
-      if (hour >= 0 && hour < 12) {
-        msg = 'Morning!';
-      } else if (hour >= 12 && hour < 17) {
-        msg = 'Afternoon!';
-      }
-      el.textContent = msg;
-    });
-  </script>
-
 </body>
-
 </html>

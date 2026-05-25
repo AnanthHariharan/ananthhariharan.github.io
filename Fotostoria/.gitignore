@@ -1,0 +1,6 @@
+node_modules/
+photos/
+metadata.json
+cache/
+.DS_Store
+*.log

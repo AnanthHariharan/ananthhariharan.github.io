@@ -1,0 +1,590 @@
+{
+  "generatedAt": "2026-05-25T05:00:52.503Z",
+  "photos": [
+    {
+      "id": "42ed364bb9ec",
+      "album": "Madras",
+      "file": "IMG_3425.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.064944444444444,
+        "lng": 80.27796944444444
+      },
+      "takenAt": "2022-04-28T00:12:41.000Z",
+      "width": 1800,
+      "height": 932,
+      "thumbUrl": "public-photos/Madras/IMG_3425%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3425.webp"
+    },
+    {
+      "id": "eb14bef2a4df",
+      "album": "Madras",
+      "file": "IMG_3424.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.064702777777779,
+        "lng": 80.28362222222222
+      },
+      "takenAt": "2022-04-28T00:10:53.000Z",
+      "width": 1800,
+      "height": 875,
+      "thumbUrl": "public-photos/Madras/IMG_3424%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3424.webp"
+    },
+    {
+      "id": "28aef0274b69",
+      "album": "Madras",
+      "file": "IMG_3423.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.065108333333335,
+        "lng": 80.28373055555555
+      },
+      "takenAt": "2022-04-28T00:10:42.000Z",
+      "width": 1800,
+      "height": 688,
+      "thumbUrl": "public-photos/Madras/IMG_3423%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3423.webp"
+    },
+    {
+      "id": "18b4e2ee36a3",
+      "album": "Madras",
+      "file": "IMG_3416.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.067847222222222,
+        "lng": 80.284325
+      },
+      "takenAt": "2022-04-28T00:10:09.000Z",
+      "width": 1800,
+      "height": 1343,
+      "thumbUrl": "public-photos/Madras/IMG_3416%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3416.webp"
+    },
+    {
+      "id": "371e937f1b24",
+      "album": "Madras",
+      "file": "IMG_3413.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.079563888888888,
+        "lng": 80.28813888888888
+      },
+      "takenAt": "2022-04-28T00:07:09.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3413%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3413.webp"
+    },
+    {
+      "id": "4b4bd34bd678",
+      "album": "Madras",
+      "file": "IMG_3410.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.079241666666666,
+        "lng": 80.28819166666666
+      },
+      "takenAt": "2022-04-28T00:06:07.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3410%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3410.webp"
+    },
+    {
+      "id": "70c82a7f9c5c",
+      "album": "Madras",
+      "file": "IMG_3408.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.07921111111111,
+        "lng": 80.28822222222222
+      },
+      "takenAt": "2022-04-28T00:05:53.000Z",
+      "width": 1800,
+      "height": 1335,
+      "thumbUrl": "public-photos/Madras/IMG_3408%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3408.webp"
+    },
+    {
+      "id": "6c3be16d5ddf",
+      "album": "Madras",
+      "file": "IMG_3407.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.07978611111111,
+        "lng": 80.2882
+      },
+      "takenAt": "2022-04-28T00:02:08.000Z",
+      "width": 1800,
+      "height": 951,
+      "thumbUrl": "public-photos/Madras/IMG_3407%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3407.webp"
+    },
+    {
+      "id": "ca709a78ec41",
+      "album": "Madras",
+      "file": "IMG_3406.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.075866666666666,
+        "lng": 80.27861666666666
+      },
+      "takenAt": "2022-04-27T23:55:20.000Z",
+      "width": 1800,
+      "height": 2450,
+      "thumbUrl": "public-photos/Madras/IMG_3406%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3406.webp"
+    },
+    {
+      "id": "027e25d73b65",
+      "album": "Madras",
+      "file": "IMG_3405.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069330555555556,
+        "lng": 80.2564
+      },
+      "takenAt": "2022-04-27T23:32:17.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3405%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3405.webp"
+    },
+    {
+      "id": "cfb283142c0e",
+      "album": "Madras",
+      "file": "IMG_3403.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069047222222222,
+        "lng": 80.2564
+      },
+      "takenAt": "2022-04-27T23:31:18.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3403%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3403.webp"
+    },
+    {
+      "id": "e3deec9e74c8",
+      "album": "Madras",
+      "file": "IMG_3397.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069430555555556,
+        "lng": 80.25621111111111
+      },
+      "takenAt": "2022-04-27T23:21:55.000Z",
+      "width": 1800,
+      "height": 2400,
+      "thumbUrl": "public-photos/Madras/IMG_3397%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3397.webp"
+    },
+    {
+      "id": "1025e4031a15",
+      "album": "Madras",
+      "file": "IMG_3396.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069416666666667,
+        "lng": 80.25621666666666
+      },
+      "takenAt": "2022-04-27T23:21:45.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3396%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3396.webp"
+    },
+    {
+      "id": "798d33256f5c",
+      "album": "Madras",
+      "file": "IMG_3395.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069419444444444,
+        "lng": 80.25629444444445
+      },
+      "takenAt": "2022-04-27T23:20:48.000Z",
+      "width": 1800,
+      "height": 2400,
+      "thumbUrl": "public-photos/Madras/IMG_3395%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3395.webp"
+    },
+    {
+      "id": "107b0450c312",
+      "album": "Madras",
+      "file": "IMG_3394.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069572222222222,
+        "lng": 80.25636388888888
+      },
+      "takenAt": "2022-04-27T23:20:10.000Z",
+      "width": 1800,
+      "height": 2400,
+      "thumbUrl": "public-photos/Madras/IMG_3394%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3394.webp"
+    },
+    {
+      "id": "fc36b83ee231",
+      "album": "Madras",
+      "file": "IMG_3392.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069555555555555,
+        "lng": 80.25635555555556
+      },
+      "takenAt": "2022-04-27T23:20:00.000Z",
+      "width": 1800,
+      "height": 1333,
+      "thumbUrl": "public-photos/Madras/IMG_3392%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3392.webp"
+    },
+    {
+      "id": "927d343130d1",
+      "album": "Madras",
+      "file": "IMG_3391.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069683333333334,
+        "lng": 80.25636388888888
+      },
+      "takenAt": "2022-04-27T23:19:46.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3391%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3391.webp"
+    },
+    {
+      "id": "4e4409c28362",
+      "album": "Madras",
+      "file": "IMG_3390.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069508333333333,
+        "lng": 80.256425
+      },
+      "takenAt": "2022-04-27T23:19:33.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3390%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3390.webp"
+    },
+    {
+      "id": "d148b3803c84",
+      "album": "Madras",
+      "file": "IMG_3389.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.070816666666666,
+        "lng": 80.25736944444445
+      },
+      "takenAt": "2022-04-27T23:16:46.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3389%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3389.webp"
+    },
+    {
+      "id": "e0bb21c63c47",
+      "album": "Madras",
+      "file": "IMG_3388.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.070888888888888,
+        "lng": 80.25724722222222
+      },
+      "takenAt": "2022-04-27T23:16:30.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3388%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3388.webp"
+    },
+    {
+      "id": "7727b7bbf936",
+      "album": "Madras",
+      "file": "IMG_3386.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069713888888888,
+        "lng": 80.2573
+      },
+      "takenAt": "2022-04-27T23:13:19.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3386%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3386.webp"
+    },
+    {
+      "id": "c45714b3da9b",
+      "album": "Madras",
+      "file": "IMG_3376.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.070766666666666,
+        "lng": 80.25663055555556
+      },
+      "takenAt": "2022-04-27T23:05:10.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3376%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3376.webp"
+    },
+    {
+      "id": "f896e7118ea5",
+      "album": "Madras",
+      "file": "IMG_3375.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.07075,
+        "lng": 80.25663055555556
+      },
+      "takenAt": "2022-04-27T23:05:08.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3375%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3375.webp"
+    },
+    {
+      "id": "494ad3babc0d",
+      "album": "Madras",
+      "file": "IMG_3374.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.068866666666667,
+        "lng": 80.25664444444445
+      },
+      "takenAt": "2022-04-27T23:05:01.000Z",
+      "width": 1800,
+      "height": 2400,
+      "thumbUrl": "public-photos/Madras/IMG_3374%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3374.webp"
+    },
+    {
+      "id": "7b546dca3405",
+      "album": "Madras",
+      "file": "IMG_3373.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.068880555555555,
+        "lng": 80.2566138888889
+      },
+      "takenAt": "2022-04-27T23:02:25.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3373%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3373.webp"
+    },
+    {
+      "id": "c89243fe1ae3",
+      "album": "Madras",
+      "file": "IMG_3371.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.070974999999999,
+        "lng": 80.2564
+      },
+      "takenAt": "2022-04-27T22:51:37.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3371%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3371.webp"
+    },
+    {
+      "id": "ebf3c3a9de60",
+      "album": "Madras",
+      "file": "IMG_3369.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.071355555555556,
+        "lng": 80.25688055555555
+      },
+      "takenAt": "2022-04-27T22:50:53.000Z",
+      "width": 1800,
+      "height": 1373,
+      "thumbUrl": "public-photos/Madras/IMG_3369%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3369.webp"
+    },
+    {
+      "id": "afa9842bbc2c",
+      "album": "Madras",
+      "file": "IMG_3368.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.071377777777778,
+        "lng": 80.25692777777778
+      },
+      "takenAt": "2022-04-27T22:50:45.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3368%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3368.webp"
+    },
+    {
+      "id": "8c00bba51611",
+      "album": "Madras",
+      "file": "IMG_3365.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.071158333333333,
+        "lng": 80.25745277777777
+      },
+      "takenAt": "2022-04-27T22:49:59.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3365%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3365.webp"
+    },
+    {
+      "id": "7a27b7d64806",
+      "album": "Madras",
+      "file": "IMG_3364.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.07123611111111,
+        "lng": 80.257225
+      },
+      "takenAt": "2022-04-27T22:32:19.000Z",
+      "width": 1800,
+      "height": 2400,
+      "thumbUrl": "public-photos/Madras/IMG_3364%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3364.webp"
+    },
+    {
+      "id": "fc9a47c79f35",
+      "album": "Madras",
+      "file": "IMG_3360.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.070497222222222,
+        "lng": 80.25746111111111
+      },
+      "takenAt": "2022-04-27T22:30:57.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3360%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3360.webp"
+    },
+    {
+      "id": "43d4c268005c",
+      "album": "Madras",
+      "file": "IMG_3359.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069625,
+        "lng": 80.25674444444445
+      },
+      "takenAt": "2022-04-27T22:28:04.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3359%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3359.webp"
+    },
+    {
+      "id": "ac79730451dc",
+      "album": "Madras",
+      "file": "IMG_3358.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.069530555555556,
+        "lng": 80.25672222222222
+      },
+      "takenAt": "2022-04-27T22:27:47.000Z",
+      "width": 1800,
+      "height": 1350,
+      "thumbUrl": "public-photos/Madras/IMG_3358%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3358.webp"
+    },
+    {
+      "id": "a9e37cf5e3b2",
+      "album": "Madras",
+      "file": "IMG_3338.HEIC",
+      "title": "",
+      "description": "",
+      "tags": [],
+      "location": {
+        "lat": 13.040927777777778,
+        "lng": 80.23223888888889
+      },
+      "takenAt": "2022-04-24T23:47:04.000Z",
+      "width": null,
+      "height": null,
+      "thumbUrl": "public-photos/Madras/IMG_3338%40thumb.webp",
+      "fullUrl": "public-photos/Madras/IMG_3338.webp"
+    }
+  ],
+  "albums": [
+    {
+      "name": "Madras",
+      "count": 34,
+      "cover": "public-photos/Madras/IMG_3425%40thumb.webp"
+    }
+  ]
+}

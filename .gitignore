@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (root + Fotostoria)
+node_modules/
+*.log
+
+# Fotostoria local-only data — only the built output in public-photos/ is committed
+Fotostoria/photos/
+Fotostoria/cache/
+Fotostoria/metadata.json
