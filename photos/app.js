@@ -7,7 +7,7 @@ const state = {
   selectedAlbum: null,
   selectedTags: new Set(),
   searchQuery: "",
-  globe: null,
+  map: null,
   currentPhotoId: null,
 };
 
@@ -133,40 +133,93 @@ function renderMap() {
   return `
     <h2 class="view-title">Map</h2>
     <p class="view-sub">${located.length} of ${state.photos.length} photograph${state.photos.length === 1 ? "" : "s"} geolocated</p>
-    <div id="globe-wrap"><div class="map-hint">Drag to rotate · Scroll to zoom · Click a pin to open</div></div>
+    <div id="map-wrap"><div class="map-hint">Drag to pan · Scroll to zoom · Click a pin to open</div></div>
     ${located.length === 0 ? `<p class="view-sub" style="margin-top:1rem">No GPS data found in this library.</p>` : ""}
   `;
 }
 
-async function mountGlobe() {
+async function mountMap() {
   const located = state.photos.filter((p) => p.location);
-  const wrap = document.getElementById("globe-wrap");
-  if (!wrap) return;
-  if (!window.Globe) await loadScript("https://unpkg.com/globe.gl@2.32.4/dist/globe.gl.min.js");
+  const wrap = document.getElementById("map-wrap");
+  if (!wrap || located.length === 0) return;
 
-  const pts = located.map((p) => ({ lat: p.location.lat, lng: p.location.lng, photo: p }));
+  if (!window.L) await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
 
-  const globe = window.Globe()(wrap)
-    .globeImageUrl("https://unpkg.com/three-globe@2.31.0/example/img/earth-blue-marble.jpg")
-    .backgroundColor("#14110F")
-    .pointsData(pts)
-    .pointLat("lat")
-    .pointLng("lng")
-    .pointAltitude(0.01)
-    .pointRadius(0.4)
-    .pointColor(() => "#C9A961")
-    .pointLabel((d) => `
-      <div style="font-family:'Spectral',Georgia,serif;background:#1A1714;color:#EDE6D6;padding:8px 12px;border:1px solid rgba(201,169,97,0.4);">
-        <div style="font-style:italic;margin-bottom:2px;">${escapeHtml(d.photo.title || d.photo.file)}</div>
-        <div style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#C9A961;">${escapeHtml(d.photo.album)}</div>
-      </div>
-    `)
-    .onPointClick((d) => openLightbox(d.photo.id));
+  // Tear down a previous instance if the user re-enters the map view.
+  if (state.map) { try { state.map.remove(); } catch {} state.map = null; }
 
-  const resize = () => { globe.width(wrap.clientWidth); globe.height(wrap.clientHeight); };
-  resize();
-  window.addEventListener("resize", resize);
-  state.globe = { instance: globe, resize };
+  const map = L.map(wrap, {
+    zoomControl: true,
+    minZoom: 2,
+    maxZoom: 19,
+    worldCopyJump: true,
+    attributionControl: true,
+  });
+
+  // CARTO dark basemap — free, no API key, matches the editorial palette.
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: "abcd",
+    maxZoom: 20,
+  }).addTo(map);
+
+  // Group photos by rounded coordinate so overlapping pins become a single marker.
+  const buckets = new Map();
+  for (const p of located) {
+    const key = `${p.location.lat.toFixed(4)},${p.location.lng.toFixed(4)}`;
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push(p);
+  }
+
+  const bounds = [];
+  for (const [key, group] of buckets.entries()) {
+    const [lat, lng] = key.split(",").map(Number);
+    bounds.push([lat, lng]);
+
+    const count = group.length;
+    const icon = L.divIcon({
+      className: "photo-pin",
+      html: `
+        <span class="photo-pin-dot"></span>
+        ${count > 1 ? `<span class="photo-pin-count">${count}</span>` : ""}
+      `,
+      iconSize: count > 1 ? [28, 28] : [16, 16],
+      iconAnchor: count > 1 ? [14, 14] : [8, 8],
+    });
+
+    const marker = L.marker([lat, lng], { icon, title: group[0].title || group[0].file }).addTo(map);
+
+    const popupHtml = group.slice(0, 6).map((p) => `
+      <button class="popup-photo" data-photo-id="${escapeAttr(p.id)}">
+        <img src="${p.thumbUrl}" alt="${escapeAttr(p.title || p.file)}" />
+        <span>${escapeHtml(p.title || p.file)}</span>
+      </button>
+    `).join("");
+    const more = group.length > 6 ? `<p class="popup-more">+${group.length - 6} more here</p>` : "";
+
+    marker.bindPopup(`<div class="photo-popup">${popupHtml}${more}</div>`, {
+      maxWidth: 280,
+      className: "photo-popup-wrap",
+      closeButton: false,
+    });
+  }
+
+  // Fit to all markers, then add a touch of padding.
+  if (bounds.length === 1) {
+    map.setView(bounds[0], 12);
+  } else {
+    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+  }
+
+  // Delegate popup photo clicks → lightbox.
+  map.on("popupopen", (e) => {
+    const node = e.popup.getElement();
+    node.querySelectorAll(".popup-photo").forEach((btn) => {
+      btn.addEventListener("click", () => openLightbox(btn.dataset.photoId));
+    });
+  });
+
+  state.map = map;
 }
 
 function loadScript(src) {
@@ -183,7 +236,7 @@ function loadScript(src) {
 function render() {
   if (state.mode === "albums") app.innerHTML = renderAlbums();
   else if (state.mode === "collections") app.innerHTML = renderCollections();
-  else if (state.mode === "map") { app.innerHTML = renderMap(); mountGlobe(); }
+  else if (state.mode === "map") { app.innerHTML = renderMap(); mountMap(); }
 }
 
 // ---------- Click delegation ----------

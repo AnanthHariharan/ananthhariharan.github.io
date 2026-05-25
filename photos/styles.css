@@ -254,26 +254,154 @@ main {
 .tag-chip.active .count { color: var(--accent); }
 
 /* ---------- map ---------- */
-#globe-wrap {
+#map-wrap {
   position: relative;
   width: 100%;
-  height: min(72vh, 700px);
+  height: min(78vh, 760px);
   background: var(--bg);
   border: 1px solid var(--rule);
   overflow: hidden;
 }
+#map-wrap .leaflet-container {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  font-family: var(--sans);
+}
 .map-hint {
   position: absolute;
   left: 1rem; bottom: 1rem;
-  z-index: 1;
+  z-index: 600; /* above leaflet panes */
   font-family: var(--sans);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
-  background: rgba(20,17,15,0.6);
+  background: rgba(20,17,15,0.75);
   padding: .35rem .65rem;
   pointer-events: none;
+  border: 1px solid var(--rule);
+}
+
+/* Leaflet controls — match palette */
+.leaflet-control-zoom a {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--rule) !important;
+  border-bottom-width: 0 !important;
+  font-family: var(--serif) !important;
+  font-weight: 400 !important;
+}
+.leaflet-control-zoom a:last-child { border-bottom-width: 1px !important; }
+.leaflet-control-zoom a:hover {
+  background: var(--bg-alt) !important;
+  color: var(--accent) !important;
+}
+.leaflet-control-attribution {
+  background: rgba(20,17,15,0.75) !important;
+  color: var(--text-mute) !important;
+  font-family: var(--sans) !important;
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+}
+.leaflet-control-attribution a { color: var(--text-dim) !important; }
+
+/* Photo pins */
+.photo-pin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-pin-dot {
+  display: block;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #14110F;
+  box-shadow:
+    0 0 0 1px var(--accent),
+    0 0 12px rgba(201,169,97,0.55);
+  transition: transform .2s var(--ease);
+}
+.photo-pin:hover .photo-pin-dot { transform: scale(1.25); }
+.photo-pin-count {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #1a1410;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  border: 2px solid #14110F;
+  box-shadow: 0 0 0 1px var(--accent), 0 0 14px rgba(201,169,97,0.6);
+  transition: transform .2s var(--ease);
+}
+.photo-pin:hover .photo-pin-count { transform: scale(1.1); }
+
+/* Popups */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--bg-alt) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6) !important;
+}
+.leaflet-popup-content {
+  margin: .5rem !important;
+  font-family: var(--serif) !important;
+}
+.photo-popup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .35rem;
+  max-width: 280px;
+}
+.popup-photo {
+  display: block;
+  position: relative;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  transition: border-color .2s var(--ease);
+}
+.popup-photo:hover { border-color: var(--accent); }
+.popup-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.popup-photo span {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: .25rem .4rem;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--text);
+  background: linear-gradient(0deg, rgba(20,17,15,0.9), transparent);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.popup-more {
+  grid-column: 1 / -1;
+  margin: .35rem 0 0;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
 }
 
 /* ---------- lightbox ---------- */
