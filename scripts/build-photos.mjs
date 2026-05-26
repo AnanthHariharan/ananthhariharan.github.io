@@ -209,10 +209,24 @@ async function main() {
     };
   });
 
+  // Album-level location overrides (for albums whose photos have no EXIF GPS).
+  let albumLocations = {};
+  try {
+    const raw = await fs.readFile(path.join(ROOT, "album-locations.json"), "utf8");
+    const parsed = JSON.parse(raw);
+    for (const [k, v] of Object.entries(parsed)) {
+      if (k.startsWith("_")) continue;
+      if (v && Number.isFinite(v.lat) && Number.isFinite(v.lng)) {
+        albumLocations[k] = { lat: v.lat, lng: v.lng };
+      }
+    }
+  } catch {}
+
   const manifest = {
     generatedAt: new Date().toISOString(),
     photos,
     albums: albumIndex,
+    albumLocations,
   };
 
   await fs.writeFile(path.join(OUT_DIR, "photos.json"), JSON.stringify(manifest, null, 2));

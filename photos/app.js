@@ -29,6 +29,7 @@ async function loadIndex() {
     fullUrl: rewriteUrl(p.fullUrl),
   }));
   state.albums = data.albums.map((a) => ({ ...a, cover: a.cover ? rewriteUrl(a.cover) : null }));
+  state.albumLocations = data.albumLocations || {};
 }
 
 function setMode(mode) {
@@ -127,16 +128,26 @@ function renderCollections() {
   `;
 }
 
-// ---------- Map (globe with one pin per album) ----------
+// ---------- Map (globe with one pushpin per album) ----------
 function albumPins() {
   const pins = [];
+  const overrides = state.albumLocations || {};
   for (const album of state.albums) {
-    const located = state.photos.filter((p) => p.album === album.name && p.location);
-    if (located.length === 0) continue;
-    const lat = located.reduce((s, p) => s + p.location.lat, 0) / located.length;
-    const lng = located.reduce((s, p) => s + p.location.lng, 0) / located.length;
-    const preview = located[Math.floor(Math.random() * located.length)];
-    pins.push({ album: album.name, lat, lng, preview, count: located.length });
+    const inAlbum = state.photos.filter((p) => p.album === album.name);
+    const located = inAlbum.filter((p) => p.location);
+    let lat, lng;
+    if (located.length > 0) {
+      lat = located.reduce((s, p) => s + p.location.lat, 0) / located.length;
+      lng = located.reduce((s, p) => s + p.location.lng, 0) / located.length;
+    } else if (overrides[album.name]) {
+      ({ lat, lng } = overrides[album.name]);
+    } else {
+      continue;
+    }
+    const pool = inAlbum.length > 0 ? inAlbum : [];
+    if (pool.length === 0) continue;
+    const preview = pool[Math.floor(Math.random() * pool.length)];
+    pins.push({ album: album.name, lat, lng, preview });
   }
   return pins;
 }
@@ -166,6 +177,8 @@ async function mountGlobe() {
   const wrap = document.getElementById("globe-wrap");
   if (!wrap || pins.length === 0) return;
   if (!window.Globe) await loadScript("https://unpkg.com/globe.gl@2.32.4/dist/globe.gl.min.js");
+  // three.js for building pushpin meshes — version-matched to what globe.gl@2.32 ships.
+  if (!window.THREE) await loadScript("https://unpkg.com/three@0.149.0/build/three.min.js");
 
   // Tear down a previous instance if the user re-enters the map view.
   if (state.globe) {
@@ -176,28 +189,62 @@ async function mountGlobe() {
   // Wait one frame so wrap's real layout dimensions are known.
   await new Promise((r) => requestAnimationFrame(r));
 
-  const PIN_SVG = `
-    <svg viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M12 0 C5.4 0 0 5.4 0 12 c0 9 12 20 12 20 s12-11 12-20 C24 5.4 18.6 0 12 0 z"
-            fill="#c2554d" stroke="#1a0a0a" stroke-width="1.2" stroke-linejoin="round"/>
-      <circle cx="12" cy="12" r="4" fill="#f3e6d4"/>
-    </svg>`;
+  // Materials shared across pins
+  const headMat  = new THREE.MeshLambertMaterial({ color: 0xc2554d });
+  const stemMat  = new THREE.MeshLambertMaterial({ color: 0x8a2a2a });
+  const accentMat = new THREE.MeshLambertMaterial({ color: 0xf3e6d4 });
+
+  function makePin() {
+    const g = new THREE.Group();
+    // Stem: tapered cylinder, tip at -Y (touches earth), wider top at +Y
+    const stemGeo = new THREE.CylinderGeometry(0.45, 0.05, 4.2, 16);
+    const stem = new THREE.Mesh(stemGeo, stemMat);
+    stem.position.y = 2.1; // half-height; base of cylinder at y=0 (earth surface)
+    g.add(stem);
+    // Collar — small disc between stem and head
+    const collarGeo = new THREE.CylinderGeometry(0.75, 0.75, 0.4, 20);
+    const collar = new THREE.Mesh(collarGeo, accentMat);
+    collar.position.y = 4.4;
+    g.add(collar);
+    // Head: sphere at top
+    const head = new THREE.Mesh(new THREE.SphereGeometry(1.4, 24, 18), headMat);
+    head.position.y = 6.0;
+    g.add(head);
+    // Small highlight dot
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 10), accentMat);
+    dot.position.set(0.55, 6.4, 0.7);
+    g.add(dot);
+    return g;
+  }
+
+  // Hover label DOM
+  let hoverLabel = wrap.querySelector(".globe-hover-label");
+  if (!hoverLabel) {
+    hoverLabel = document.createElement("div");
+    hoverLabel.className = "globe-hover-label";
+    hoverLabel.hidden = true;
+    wrap.appendChild(hoverLabel);
+  }
 
   const globe = window.Globe()(wrap)
     .globeImageUrl("https://unpkg.com/three-globe@2.31.0/example/img/earth-blue-marble.jpg")
     .backgroundColor("#14110F")
-    .htmlElementsData(pins)
-    .htmlLat("lat")
-    .htmlLng("lng")
-    .htmlAltitude(0.01)
-    .htmlElement((d) => {
-      const el = document.createElement("div");
-      el.className = "globe-pin";
-      el.title = d.album;
-      el.innerHTML = PIN_SVG + `<span class="globe-pin-label">${escapeHtml(d.album)}</span>`;
-      el.addEventListener("click", (e) => { e.stopPropagation(); showAlbumPreview(d); });
-      return el;
-    });
+    .objectsData(pins)
+    .objectLat("lat")
+    .objectLng("lng")
+    .objectAltitude(0)
+    .objectThreeObject(() => makePin())
+    .onObjectHover((obj) => {
+      if (obj) {
+        hoverLabel.textContent = obj.album;
+        hoverLabel.hidden = false;
+        wrap.style.cursor = "pointer";
+      } else {
+        hoverLabel.hidden = true;
+        wrap.style.cursor = "";
+      }
+    })
+    .onObjectClick((obj) => { if (obj) showAlbumPreview(obj); });
 
   const resize = () => { globe.width(wrap.clientWidth); globe.height(wrap.clientHeight); };
   resize();

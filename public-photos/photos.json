@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T07:20:34.477Z",
+  "generatedAt": "2026-05-26T07:43:20.822Z",
   "photos": [
     {
       "id": "e0f3e3fcd69e",
@@ -19637,5 +19637,27 @@
       "count": 72,
       "cover": "public-photos/Yellowstone/IMG_4401%40thumb.webp"
     }
-  ]
+  ],
+  "albumLocations": {
+    "Evanston": {
+      "lat": 42.0451,
+      "lng": -87.6877
+    },
+    "Madison": {
+      "lat": 43.0731,
+      "lng": -89.4012
+    },
+    "Notre Dame": {
+      "lat": 41.7001,
+      "lng": -86.2379
+    },
+    "Orlando": {
+      "lat": 28.5384,
+      "lng": -81.3789
+    },
+    "Seattle": {
+      "lat": 47.6062,
+      "lng": -122.3321
+    }
+  }
 }

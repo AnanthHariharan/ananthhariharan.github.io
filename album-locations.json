@@ -1,0 +1,8 @@
+{
+  "_comment": "Manual location overrides for albums lacking EXIF GPS. Use {lat, lng} in decimal degrees. The album still uses GPS centroids when its photos have them; this is a fallback for albums with zero geolocated photos. Edit and re-run scripts/build-photos.mjs to apply.",
+  "Evanston":   { "lat": 42.0451, "lng": -87.6877 },
+  "Madison":    { "lat": 43.0731, "lng": -89.4012 },
+  "Notre Dame": { "lat": 41.7001, "lng": -86.2379 },
+  "Orlando":    { "lat": 28.5384, "lng": -81.3789 },
+  "Seattle":    { "lat": 47.6062, "lng": -122.3321 }
+}
