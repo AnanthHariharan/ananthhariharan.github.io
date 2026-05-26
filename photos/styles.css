@@ -279,10 +279,10 @@ main {
 
 /* Album preview panel (shown on pin click) */
 .album-preview {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  z-index: 5;
-  width: min(300px, calc(100% - 2rem));
+  position: fixed;
+  top: 6rem; right: 1.5rem;
+  z-index: 80;
+  width: min(320px, calc(100% - 3rem));
   background: var(--bg-alt);
   border: 1px solid var(--rule);
   box-shadow: 0 10px 30px rgba(0,0,0,0.55);

@@ -159,13 +159,13 @@ function renderMap() {
     <p class="view-sub">Hover or click a pin to preview the album</p>
     <div id="globe-wrap">
       <div class="map-hint">Drag to rotate · Scroll to zoom · Click a pin to preview</div>
-      <div id="album-preview" class="album-preview" hidden>
-        <button class="album-preview-close" aria-label="Close">&times;</button>
-        <img id="album-preview-img" alt="" />
-        <div class="album-preview-body">
-          <h3 id="album-preview-title">—</h3>
-          <button id="album-preview-open" class="album-preview-open">Open album →</button>
-        </div>
+    </div>
+    <div id="album-preview" class="album-preview" hidden>
+      <button class="album-preview-close" aria-label="Close">&times;</button>
+      <img id="album-preview-img" alt="" />
+      <div class="album-preview-body">
+        <h3 id="album-preview-title">—</h3>
+        <button id="album-preview-open" class="album-preview-open">Open album →</button>
       </div>
     </div>
     ${pins.length === 0 ? `<p class="view-sub" style="margin-top:1rem">No albums with GPS data yet.</p>` : ""}
@@ -195,25 +195,40 @@ async function mountGlobe() {
   const accentMat = new THREE.MeshLambertMaterial({ color: 0xf3e6d4 });
 
   function makePin() {
+    // Pin "pressed into" the globe: stem extends INTO the surface
+    // (negative local Y, which points radially toward globe centre),
+    // only the head and a small collar visible above the surface.
     const g = new THREE.Group();
-    // Stem: tapered cylinder, tip at -Y (touches earth), wider top at +Y
-    const stemGeo = new THREE.CylinderGeometry(0.45, 0.05, 4.2, 16);
+
+    // Buried stem: tapered cone, apex deep inside, base flush with surface
+    const stemGeo = new THREE.CylinderGeometry(0.5, 0.05, 3.2, 16);
     const stem = new THREE.Mesh(stemGeo, stemMat);
-    stem.position.y = 2.1; // half-height; base of cylinder at y=0 (earth surface)
+    stem.position.y = -1.6; // top at y=0 (surface), tip at y=-3.2
     g.add(stem);
-    // Collar — small disc between stem and head
-    const collarGeo = new THREE.CylinderGeometry(0.75, 0.75, 0.4, 20);
-    const collar = new THREE.Mesh(collarGeo, accentMat);
-    collar.position.y = 4.4;
+
+    // Cream collar sitting flush with the surface
+    const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.85, 0.25, 24), accentMat);
+    collar.position.y = 0.12;
     g.add(collar);
-    // Head: sphere at top
-    const head = new THREE.Mesh(new THREE.SphereGeometry(1.4, 24, 18), headMat);
-    head.position.y = 6.0;
+
+    // Head: large sphere above the surface — the visible "button"
+    const head = new THREE.Mesh(new THREE.SphereGeometry(1.5, 28, 20), headMat);
+    head.position.y = 1.55;
     g.add(head);
-    // Small highlight dot
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 10), accentMat);
-    dot.position.set(0.55, 6.4, 0.7);
+
+    // Tiny highlight on the head
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 10), accentMat);
+    dot.position.set(0.55, 1.95, 0.7);
     g.add(dot);
+
+    // Invisible enlarged hit target so clicks register reliably even near the head
+    const hit = new THREE.Mesh(
+      new THREE.SphereGeometry(2.4, 12, 8),
+      new THREE.MeshBasicMaterial({ visible: false, transparent: true, opacity: 0, depthWrite: false })
+    );
+    hit.position.y = 1.4;
+    g.add(hit);
+
     return g;
   }
 
