@@ -251,10 +251,38 @@ img.brand-mark {
   color: var(--text-dim);
   display: flex;
   align-items: center;
-  gap: .65rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
 }
 .hero-meta .dot { color: var(--text-mute); }
+.meta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.meta-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.meta-loc .meta-icon { color: var(--accent); }
+.meta-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+.meta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: color .2s var(--ease), transform .2s var(--ease);
+}
+.meta-link:hover { color: var(--accent); transform: translateY(-1px); }
+.meta-link:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
 
 /* ---------- section ---------- */
 .section {
