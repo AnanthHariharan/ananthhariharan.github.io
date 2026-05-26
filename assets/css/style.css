@@ -129,6 +129,56 @@ body {
 }
 .site-nav a:hover::after { transform: scaleX(1); }
 
+/* ---------- nav submenu (desktop) ---------- */
+.has-submenu { position: relative; }
+.has-submenu > a { padding-right: .1rem; }
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 6px);
+  min-width: 11rem;
+  margin-top: 14px; /* generous hover bridge so cursor can travel down */
+  padding: .35rem 0;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s var(--ease), transform .18s var(--ease);
+  z-index: 60;
+}
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+/* Invisible hover bridge so the dropdown stays open while crossing the gap */
+.has-submenu::after {
+  content: "";
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  height: 18px;
+}
+.submenu li { display: block; }
+.submenu a {
+  display: block;
+  padding: .55rem 1rem;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+  transition: color .15s var(--ease), background-color .15s var(--ease);
+}
+.submenu a::after { display: none; } /* don't paint the parent's underline */
+.submenu a:hover {
+  color: var(--accent);
+  background: rgba(201, 169, 97, 0.08);
+}
+
 .nav-toggle {
   display: none;
   width: 28px; height: 22px;
@@ -817,6 +867,22 @@ body {
     border-bottom: 1px solid var(--rule);
   }
   .site-nav li:last-child a { border-bottom: 0; }
+
+  /* Submenus: expand inline on mobile (no hover on touch) */
+  .has-submenu::after { display: none; }
+  .submenu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0 0 .5rem 1rem;
+    min-width: 0;
+  }
+  .submenu a { padding: .5rem 0; }
 
   .hero { padding: 5.5rem 0 4rem; }
   .section { padding: 4rem 0; }
