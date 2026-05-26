@@ -84,23 +84,18 @@ body {
   justify-content: space-between;
   gap: 2rem;
 }
-.brand-mark {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1.05rem;
-  letter-spacing: 0.18em;
-  color: var(--text);
+.brand-wrap {
+  display: inline-flex;
+  align-items: center;
 }
-.brand-mark::after {
-  content: "";
-  display: inline-block;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-left: .55rem;
-  vertical-align: middle;
-  transform: translateY(-2px);
+.brand { display: inline-flex; align-items: center; }
+img.brand-mark {
+  display: block;
+  height: 34px;
+  width: auto;
+  transition: transform .2s var(--ease), opacity .2s var(--ease);
 }
+.brand:hover img.brand-mark { transform: translateY(-1px) scale(1.04); }
 
 .site-nav ul {
   display: flex;
@@ -153,6 +148,16 @@ body {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0);
+}
+
+/* Left-anchored submenu variant (used by the brand dropdown) */
+.has-submenu--left > .submenu.submenu--left {
+  left: 0;
+  transform: translate(0, 6px);
+}
+.has-submenu--left:hover > .submenu.submenu--left,
+.has-submenu--left:focus-within > .submenu.submenu--left {
+  transform: translate(0, 0);
 }
 /* Invisible hover bridge so the dropdown stays open while crossing the gap */
 .has-submenu::after {
@@ -867,6 +872,10 @@ body {
     border-bottom: 1px solid var(--rule);
   }
   .site-nav li:last-child a { border-bottom: 0; }
+
+  /* On mobile, the hamburger menu already lists all sections — hide the
+     brand dropdown so it doesn't double up. */
+  .brand-wrap.has-submenu > .submenu { display: none; }
 
   /* Submenus: expand inline on mobile (no hover on touch) */
   .has-submenu::after { display: none; }
