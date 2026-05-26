@@ -129,53 +129,6 @@ function renderCollections() {
 }
 
 // ---------- Map (globe with one pushpin per album) ----------
-// Iteratively nudge pins apart so tightly-clustered albums (e.g. San Diego /
-// Tijuana / Rosarito) remain individually visible and clickable. The actual
-// album centroid is preserved as `trueLat/trueLng` for reference; lat/lng
-// hold the displayed (possibly displaced) position.
-function spreadPins(pins, minDeg = 3.2, iterations = 80) {
-  for (let iter = 0; iter < iterations; iter++) {
-    let moved = false;
-    for (let i = 0; i < pins.length; i++) {
-      for (let j = i + 1; j < pins.length; j++) {
-        const a = pins[i], b = pins[j];
-        let dLat = b.lat - a.lat;
-        let dLng = b.lng - a.lng;
-        if (dLng > 180) dLng -= 360;
-        if (dLng < -180) dLng += 360;
-        let dist = Math.hypot(dLat, dLng);
-        if (dist === 0) {
-          // Perfectly coincident — nudge by a small random vector so the
-          // next iteration has a direction to push along.
-          const ang = Math.random() * Math.PI * 2;
-          a.lat -= Math.cos(ang) * 0.05;
-          a.lng -= Math.sin(ang) * 0.05;
-          b.lat += Math.cos(ang) * 0.05;
-          b.lng += Math.sin(ang) * 0.05;
-          moved = true;
-          continue;
-        }
-        if (dist < minDeg) {
-          const push = (minDeg - dist) * 0.55; // total displacement per pair
-          const nx = dLat / dist, ny = dLng / dist;
-          a.lat -= nx * push * 0.5;
-          a.lng -= ny * push * 0.5;
-          b.lat += nx * push * 0.5;
-          b.lng += ny * push * 0.5;
-          moved = true;
-        }
-      }
-    }
-    if (!moved) break;
-  }
-  for (const p of pins) {
-    p.lat = Math.max(-85, Math.min(85, p.lat));
-    if (p.lng > 180) p.lng -= 360;
-    if (p.lng < -180) p.lng += 360;
-  }
-  return pins;
-}
-
 function albumPins() {
   const pins = [];
   const overrides = state.albumLocations || {};
@@ -194,9 +147,9 @@ function albumPins() {
     const pool = inAlbum.length > 0 ? inAlbum : [];
     if (pool.length === 0) continue;
     const preview = pool[Math.floor(Math.random() * pool.length)];
-    pins.push({ album: album.name, lat, lng, trueLat: lat, trueLng: lng, preview });
+    pins.push({ album: album.name, lat, lng, preview });
   }
-  return spreadPins(pins);
+  return pins;
 }
 
 function renderMap() {
@@ -241,30 +194,28 @@ async function mountGlobe() {
   const stemMat = new THREE.MeshLambertMaterial({ color: 0x8a1a1a });
 
   function makePin() {
-    // Pushpin pressed into the globe: stem fully buried (occluded by the
-    // globe sphere), only a small hemispherical head visible as a dome
-    // sitting on the surface. Pin's tip points toward globe centre.
+    // Small dome pushpin: head sits just above the surface, stem fully
+    // buried inside the globe sphere (occluded). Smaller so dense clusters
+    // (San Diego / Tijuana / Rosarito etc.) remain individually visible.
     const g = new THREE.Group();
 
-    // Buried stem: thin cone, tip deep inside, base just below the surface
     const stem = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.25, 0.02, 2.0, 12),
+      new THREE.CylinderGeometry(0.16, 0.02, 1.4, 10),
       stemMat
     );
-    stem.position.y = -0.9; // top at y=0.1 (just inside surface), tip at y=-1.9
+    stem.position.y = -0.65;
     g.add(stem);
 
-    // Head: small sphere, centred at the surface so it appears as a half-dome
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.85, 24, 16), headMat);
-    head.position.y = 0.25; // most of sphere above surface, base tucked in
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.5, 20, 14), headMat);
+    head.position.y = 0.15;
     g.add(head);
 
-    // Generous invisible hit target so clicks register easily
+    // Invisible hit target slightly larger than the head so clicks are easy.
     const hit = new THREE.Mesh(
-      new THREE.SphereGeometry(1.6, 10, 8),
+      new THREE.SphereGeometry(1.1, 10, 8),
       new THREE.MeshBasicMaterial({ visible: false, transparent: true, opacity: 0, depthWrite: false })
     );
-    hit.position.y = 0.4;
+    hit.position.y = 0.25;
     g.add(hit);
 
     return g;
@@ -280,7 +231,10 @@ async function mountGlobe() {
   }
 
   const globe = window.Globe()(wrap)
-    .globeImageUrl("https://unpkg.com/three-globe@2.31.0/example/img/earth-blue-marble.jpg")
+    // 4K Earth texture (sharper than three-globe's default 2K blue-marble).
+    .globeImageUrl("https://cdn.jsdelivr.net/gh/turban/webgl-earth@master/images/2_no_clouds_4k.jpg")
+    // Topology bump for surface relief.
+    .bumpImageUrl("https://unpkg.com/three-globe@2.31.0/example/img/earth-topology.png")
     .backgroundColor("#14110F")
     .objectsData(pins)
     .objectLat("lat")
