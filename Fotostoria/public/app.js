@@ -264,12 +264,129 @@ const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lightbox-img");
 const fTitle = document.getElementById("meta-title");
 const fDesc = document.getElementById("meta-description");
-const fTags = document.getElementById("meta-tags");
 const fLoc = document.getElementById("meta-location");
 const fAlbum = document.getElementById("meta-album");
 const fFile = document.getElementById("meta-file");
 const fTaken = document.getElementById("meta-taken");
 const status = document.getElementById("meta-status");
+
+// ---------- Tag chip widget ----------
+const tagChipsEl = document.getElementById("tag-chips");
+const tagInputEl = document.getElementById("tag-input");
+const tagSuggestionsEl = document.getElementById("tag-suggestions");
+let currentTags = [];
+let suggestionIdx = -1;
+
+function normalizeTag(s) { return String(s ?? "").trim().toLowerCase(); }
+
+function setTags(arr) {
+  const seen = new Set();
+  currentTags = [];
+  for (const t of arr || []) {
+    const n = normalizeTag(t);
+    if (n && !seen.has(n)) { seen.add(n); currentTags.push(n); }
+  }
+  renderChips();
+}
+
+function renderChips() {
+  tagChipsEl.innerHTML = currentTags.map((t) => `
+    <span class="tag-chip-edit" data-tag="${escapeAttr(t)}">
+      ${escapeHtml(t)}
+      <button type="button" class="tag-chip-x" aria-label="Remove tag ${escapeAttr(t)}">×</button>
+    </span>
+  `).join("");
+}
+
+function addTag(raw) {
+  const n = normalizeTag(raw);
+  if (!n || currentTags.includes(n)) { tagInputEl.value = ""; renderSuggestions(""); return; }
+  currentTags.push(n);
+  renderChips();
+  tagInputEl.value = "";
+  renderSuggestions("");
+}
+
+function removeTag(t) {
+  currentTags = currentTags.filter((x) => x !== t);
+  renderChips();
+}
+
+function vocabulary() {
+  const counts = new Map();
+  for (const p of state.photos) for (const t of (p.tags || [])) {
+    const n = normalizeTag(t);
+    if (n) counts.set(n, (counts.get(n) || 0) + 1);
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+function renderSuggestions(query) {
+  const q = normalizeTag(query);
+  const items = vocabulary()
+    .filter(([t]) => !currentTags.includes(t))
+    .filter(([t]) => !q || t.includes(q))
+    .slice(0, 8);
+
+  if (items.length === 0) { tagSuggestionsEl.hidden = true; tagSuggestionsEl.innerHTML = ""; suggestionIdx = -1; return; }
+
+  tagSuggestionsEl.innerHTML = items.map(([t, c], i) => `
+    <li class="tag-suggestion ${i === suggestionIdx ? "is-active" : ""}" role="option" data-tag="${escapeAttr(t)}">
+      <span>${escapeHtml(t)}</span><span class="tag-suggestion-count">${c}</span>
+    </li>
+  `).join("");
+  tagSuggestionsEl.hidden = false;
+}
+
+tagChipsEl.addEventListener("click", (e) => {
+  const x = e.target.closest(".tag-chip-x");
+  if (!x) return;
+  const tag = x.parentElement.dataset.tag;
+  removeTag(tag);
+  tagInputEl.focus();
+});
+
+tagInputEl.addEventListener("input", () => {
+  suggestionIdx = -1;
+  renderSuggestions(tagInputEl.value);
+});
+
+tagInputEl.addEventListener("keydown", (e) => {
+  const items = tagSuggestionsEl.querySelectorAll(".tag-suggestion");
+  if (e.key === "Enter" || e.key === "," || e.key === "Tab") {
+    if (e.key === "Tab" && !tagInputEl.value && items.length === 0) return;
+    e.preventDefault();
+    const picked = suggestionIdx >= 0 && items[suggestionIdx]
+      ? items[suggestionIdx].dataset.tag
+      : tagInputEl.value;
+    if (picked) addTag(picked);
+  } else if (e.key === "Backspace" && !tagInputEl.value && currentTags.length > 0) {
+    removeTag(currentTags[currentTags.length - 1]);
+  } else if (e.key === "ArrowDown" && items.length > 0) {
+    e.preventDefault();
+    suggestionIdx = (suggestionIdx + 1) % items.length;
+    renderSuggestions(tagInputEl.value);
+  } else if (e.key === "ArrowUp" && items.length > 0) {
+    e.preventDefault();
+    suggestionIdx = (suggestionIdx - 1 + items.length) % items.length;
+    renderSuggestions(tagInputEl.value);
+  } else if (e.key === "Escape") {
+    tagSuggestionsEl.hidden = true;
+    suggestionIdx = -1;
+  }
+});
+
+tagInputEl.addEventListener("focus", () => renderSuggestions(tagInputEl.value));
+tagInputEl.addEventListener("blur", () => setTimeout(() => { tagSuggestionsEl.hidden = true; }, 120));
+
+tagSuggestionsEl.addEventListener("mousedown", (e) => {
+  // mousedown beats blur so the click registers before suggestions hide
+  const li = e.target.closest(".tag-suggestion");
+  if (!li) return;
+  e.preventDefault();
+  addTag(li.dataset.tag);
+  tagInputEl.focus();
+});
 
 document.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", (e) => {
@@ -287,7 +404,10 @@ function openLightbox(id) {
   lbImg.alt = photo.title || photo.file;
   fTitle.value = photo.title || "";
   fDesc.value = photo.description || "";
-  fTags.value = (photo.tags || []).join(", ");
+  setTags(photo.tags || []);
+  tagInputEl.value = "";
+  tagSuggestionsEl.hidden = true;
+  suggestionIdx = -1;
   fLoc.value = photo.location ? `${photo.location.lat.toFixed(5)}, ${photo.location.lng.toFixed(5)}` : "";
   fAlbum.textContent = photo.album;
   fFile.textContent = photo.file;
@@ -311,10 +431,9 @@ async function saveMetadata() {
   const photo = state.photos.find((p) => p.id === id);
   if (!photo) return;
 
-  const tags = fTags.value
-    .split(",")
-    .map((t) => t.trim().toLowerCase())
-    .filter(Boolean);
+  // Capture any unsubmitted input in the tag box as a final chip.
+  if (tagInputEl.value.trim()) addTag(tagInputEl.value);
+  const tags = [...currentTags];
 
   let location = null;
   const locRaw = fLoc.value.trim();

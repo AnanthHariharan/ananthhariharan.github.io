@@ -406,6 +406,115 @@ main {
   color: var(--ink-soft);
 }
 
+/* ---------- tag chip editor ---------- */
+.field-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.field-help {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
+.tag-editor {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  min-height: 2.4rem;
+  transition: border-color 0.15s ease;
+}
+.tag-editor:focus-within { border-color: var(--ink); }
+
+.tag-chips {
+  display: contents;
+}
+.tag-chip-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink);
+  user-select: none;
+}
+.tag-chip-x {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+.tag-chip-x:hover { color: var(--accent); }
+
+.tag-input {
+  flex: 1 1 8rem;
+  min-width: 8rem;
+  font-family: var(--serif) !important;
+  font-size: 1rem !important;
+  padding: 0.15rem 0.25rem !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--ink);
+  outline: none !important;
+}
+
+.tag-suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  z-index: 5;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 8px 24px rgba(31, 29, 26, 0.12);
+  max-height: 240px;
+  overflow-y: auto;
+}
+.tag-suggestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--ink);
+  cursor: pointer;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.tag-suggestion:last-child { border-bottom: 0; }
+.tag-suggestion:hover,
+.tag-suggestion.is-active {
+  background: var(--paper-2);
+  color: var(--accent);
+}
+.tag-suggestion-count {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
 @media (max-width: 800px) {
   .masthead { padding: 1.25rem 1.25rem 0.75rem; }
   main { padding: 1.5rem 1.25rem 4rem; }

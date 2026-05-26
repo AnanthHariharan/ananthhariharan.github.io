@@ -39,10 +39,23 @@
             <span>Description</span>
             <textarea id="meta-description" rows="6" placeholder="What is this photo about?"></textarea>
           </label>
-          <label class="field">
-            <span>Tags <em>(comma separated)</em></span>
-            <input id="meta-tags" type="text" placeholder="e.g. mountains, sunrise, japan" />
-          </label>
+          <div class="field">
+            <span class="field-label">Tags</span>
+            <div id="tag-editor" class="tag-editor">
+              <div id="tag-chips" class="tag-chips" aria-label="Selected tags"></div>
+              <input
+                id="tag-input"
+                class="tag-input"
+                type="text"
+                placeholder="Add a tag…"
+                autocomplete="off"
+                aria-autocomplete="list"
+                aria-controls="tag-suggestions"
+              />
+              <ul id="tag-suggestions" class="tag-suggestions" role="listbox" hidden></ul>
+            </div>
+            <p class="field-help">Enter or comma to add · Backspace to remove · ↑↓ + Enter to pick</p>
+          </div>
           <label class="field">
             <span>Location <em>(lat, lng — optional)</em></span>
             <input id="meta-location" type="text" placeholder="e.g. 35.6762, 139.6503" />

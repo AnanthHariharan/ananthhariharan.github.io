@@ -1,10 +1,25 @@
 import express from "express";
 import { promises as fs } from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import exifr from "exifr";
 import sharp from "sharp";
+
+const execFileP = promisify(execFile);
+
+// macOS-bundled sharp ships without an HEVC decoder, so HEIC sources silently
+// produce 0-byte webp output. Route HEIC/HEIF through `sips` first.
+async function decodeToReadable(srcPath) {
+  const ext = path.extname(srcPath).toLowerCase();
+  if (ext !== ".heic" && ext !== ".heif") return { path: srcPath, cleanup: () => {} };
+  const tmp = path.join(os.tmpdir(), `foto-${crypto.randomBytes(6).toString("hex")}.jpg`);
+  await execFileP("sips", ["-s", "format", "jpeg", srcPath, "--out", tmp]);
+  return { path: tmp, cleanup: async () => { try { await fs.unlink(tmp); } catch {} } };
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PHOTOS_DIR = path.join(__dirname, "photos");
@@ -51,11 +66,22 @@ async function getOrCreateThumb(album, file, width) {
   }
 
   await fs.mkdir(THUMBS_DIR, { recursive: true });
-  await sharp(srcPath, { failOn: "none" })
-    .rotate() // honor EXIF orientation
-    .resize({ width, withoutEnlargement: true })
-    .webp({ quality: 82 })
-    .toFile(cachePath);
+  const decoded = await decodeToReadable(srcPath);
+  try {
+    await sharp(decoded.path, { failOn: "none" })
+      .rotate() // honor EXIF orientation
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: 82 })
+      .toFile(cachePath);
+  } finally {
+    await decoded.cleanup();
+  }
+  // Sharp on HEVC-less builds sometimes produces empty output without throwing.
+  const out = await fs.stat(cachePath);
+  if (out.size === 0) {
+    await fs.unlink(cachePath).catch(() => {});
+    throw new Error("Empty thumbnail (decoder unsupported)");
+  }
   return cachePath;
 }
 
