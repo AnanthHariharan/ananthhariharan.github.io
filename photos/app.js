@@ -189,44 +189,35 @@ async function mountGlobe() {
   // Wait one frame so wrap's real layout dimensions are known.
   await new Promise((r) => requestAnimationFrame(r));
 
-  // Materials shared across pins
-  const headMat  = new THREE.MeshLambertMaterial({ color: 0xc2554d });
-  const stemMat  = new THREE.MeshLambertMaterial({ color: 0x8a2a2a });
-  const accentMat = new THREE.MeshLambertMaterial({ color: 0xf3e6d4 });
+  // Materials shared across pins — deeper, more saturated red for visibility on satellite imagery
+  const headMat = new THREE.MeshLambertMaterial({ color: 0xd23030 });
+  const stemMat = new THREE.MeshLambertMaterial({ color: 0x8a1a1a });
 
   function makePin() {
-    // Pin "pressed into" the globe: stem extends INTO the surface
-    // (negative local Y, which points radially toward globe centre),
-    // only the head and a small collar visible above the surface.
+    // Pushpin pressed into the globe: stem fully buried (occluded by the
+    // globe sphere), only a small hemispherical head visible as a dome
+    // sitting on the surface. Pin's tip points toward globe centre.
     const g = new THREE.Group();
 
-    // Buried stem: tapered cone, apex deep inside, base flush with surface
-    const stemGeo = new THREE.CylinderGeometry(0.5, 0.05, 3.2, 16);
-    const stem = new THREE.Mesh(stemGeo, stemMat);
-    stem.position.y = -1.6; // top at y=0 (surface), tip at y=-3.2
+    // Buried stem: thin cone, tip deep inside, base just below the surface
+    const stem = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.25, 0.02, 2.0, 12),
+      stemMat
+    );
+    stem.position.y = -0.9; // top at y=0.1 (just inside surface), tip at y=-1.9
     g.add(stem);
 
-    // Cream collar sitting flush with the surface
-    const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.85, 0.25, 24), accentMat);
-    collar.position.y = 0.12;
-    g.add(collar);
-
-    // Head: large sphere above the surface — the visible "button"
-    const head = new THREE.Mesh(new THREE.SphereGeometry(1.5, 28, 20), headMat);
-    head.position.y = 1.55;
+    // Head: small sphere, centred at the surface so it appears as a half-dome
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.85, 24, 16), headMat);
+    head.position.y = 0.25; // most of sphere above surface, base tucked in
     g.add(head);
 
-    // Tiny highlight on the head
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.32, 12, 10), accentMat);
-    dot.position.set(0.55, 1.95, 0.7);
-    g.add(dot);
-
-    // Invisible enlarged hit target so clicks register reliably even near the head
+    // Generous invisible hit target so clicks register easily
     const hit = new THREE.Mesh(
-      new THREE.SphereGeometry(2.4, 12, 8),
+      new THREE.SphereGeometry(1.6, 10, 8),
       new THREE.MeshBasicMaterial({ visible: false, transparent: true, opacity: 0, depthWrite: false })
     );
-    hit.position.y = 1.4;
+    hit.position.y = 0.4;
     g.add(hit);
 
     return g;
@@ -259,7 +250,11 @@ async function mountGlobe() {
         wrap.style.cursor = "";
       }
     })
-    .onObjectClick((obj) => { if (obj) showAlbumPreview(obj); });
+    .onObjectClick((obj) => {
+      if (!obj) return;
+      const sc = globe.getScreenCoords(obj.lat, obj.lng, 0);
+      showAlbumPreview(obj, sc);
+    });
 
   const resize = () => { globe.width(wrap.clientWidth); globe.height(wrap.clientHeight); };
   resize();
@@ -280,14 +275,42 @@ async function mountGlobe() {
   });
 }
 
-function showAlbumPreview(pin) {
+function showAlbumPreview(pin, anchor) {
   const panel = document.getElementById("album-preview");
   if (!panel) return;
   document.getElementById("album-preview-img").src = pin.preview.thumbUrl;
   document.getElementById("album-preview-img").alt = pin.album;
   document.getElementById("album-preview-title").textContent = pin.album;
   document.getElementById("album-preview-open").dataset.album = pin.album;
+
   panel.hidden = false;
+
+  // Position the panel near the pin if we have screen coordinates from the globe.
+  if (anchor && Number.isFinite(anchor.x) && Number.isFinite(anchor.y)) {
+    const wrap = document.getElementById("globe-wrap");
+    if (!wrap) return;
+    const wrapRect = wrap.getBoundingClientRect();
+    // anchor is in globe-canvas coordinates → convert to viewport
+    const pinX = wrapRect.left + anchor.x;
+    const pinY = wrapRect.top + anchor.y;
+
+    const margin = 16;
+    const w = panel.offsetWidth || 320;
+    const h = panel.offsetHeight || 320;
+
+    // Prefer right of the pin; fall back to left if not enough room
+    let left = pinX + 28;
+    if (left + w > window.innerWidth - margin) left = pinX - w - 28;
+    left = Math.max(margin, Math.min(left, window.innerWidth - w - margin));
+
+    // Vertically centred on the pin, clamped to viewport
+    let top = pinY - h / 2;
+    top = Math.max(margin, Math.min(top, window.innerHeight - h - margin));
+
+    panel.style.left = left + "px";
+    panel.style.top = top + "px";
+    panel.style.right = "auto";
+  }
 }
 function hideAlbumPreview() {
   const panel = document.getElementById("album-preview");

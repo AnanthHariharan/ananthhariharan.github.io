@@ -280,9 +280,11 @@ main {
 /* Album preview panel (shown on pin click) */
 .album-preview {
   position: fixed;
+  /* Initial placement before JS positions next to the clicked pin */
   top: 6rem; right: 1.5rem;
   z-index: 80;
-  width: min(320px, calc(100% - 3rem));
+  width: 280px;
+  max-width: calc(100vw - 2rem);
   background: var(--bg-alt);
   border: 1px solid var(--rule);
   box-shadow: 0 10px 30px rgba(0,0,0,0.55);
