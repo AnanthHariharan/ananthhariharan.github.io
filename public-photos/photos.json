@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T07:43:20.822Z",
+  "generatedAt": "2026-05-26T15:55:02.874Z",
   "photos": [
     {
       "id": "e0f3e3fcd69e",
@@ -563,12 +563,14 @@
       "id": "94c5c3bf8134",
       "album": "Champaign",
       "file": "IMG_0721.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Beckman Quad",
+      "description": "View of Beckman Quad, including the Beckman Institute building at the north end of the University of Illinois campus",
+      "tags": [
+        "university"
+      ],
       "location": {
         "lat": 40.11345,
-        "lng": -88.22750833333333
+        "lng": -88.22751
       },
       "takenAt": "2024-11-18T12:31:23.000Z",
       "width": 1800,
@@ -577,32 +579,18 @@
       "fullUrl": "public-photos/Champaign/IMG_0721.webp"
     },
     {
-      "id": "bfd8f8395903",
-      "album": "Champaign",
-      "file": "IMG_0719.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.11305277777778,
-        "lng": -88.22740833333333
-      },
-      "takenAt": "2024-11-18T12:30:31.000Z",
-      "width": 1800,
-      "height": 2400,
-      "thumbUrl": "public-photos/Champaign/IMG_0719%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_0719.webp"
-    },
-    {
       "id": "2c97c0aacf93",
       "album": "Champaign",
       "file": "IMG_0358.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "University High School",
+      "description": "The University of Illinois Laboratory school, constructed in beautiful neo-gothic style and situated near the engineering campus of the university",
+      "tags": [
+        "school",
+        "university"
+      ],
       "location": {
-        "lat": 40.11309166666667,
-        "lng": -88.22601388888889
+        "lat": 40.11309,
+        "lng": -88.22601
       },
       "takenAt": "2024-09-09T02:15:00.000Z",
       "width": 1800,
@@ -2537,40 +2525,6 @@
       "fullUrl": "public-photos/Madras/IMG_8939.webp"
     },
     {
-      "id": "b1f1e24125d2",
-      "album": "Champaign",
-      "file": "IMG_8402.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.110327777777776,
-        "lng": -88.22621944444445
-      },
-      "takenAt": "2024-01-24T02:41:15.000Z",
-      "width": 1800,
-      "height": 2400,
-      "thumbUrl": "public-photos/Champaign/IMG_8402%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_8402.webp"
-    },
-    {
-      "id": "eb6954f6fd22",
-      "album": "Champaign",
-      "file": "IMG_8379.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.106991666666666,
-        "lng": -88.22747777777778
-      },
-      "takenAt": "2024-01-19T07:18:10.000Z",
-      "width": 1800,
-      "height": 2400,
-      "thumbUrl": "public-photos/Champaign/IMG_8379%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_8379.webp"
-    },
-    {
       "id": "fe4669c59ed4",
       "album": "Cancun",
       "file": "IMG_8317.HEIC",
@@ -4044,32 +3998,17 @@
       "fullUrl": "public-photos/Nashville/IMG_8011.webp"
     },
     {
-      "id": "cd3555e84db3",
-      "album": "Champaign",
-      "file": "IMG_7847.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.10851388888889,
-        "lng": -88.2273111111111
-      },
-      "takenAt": "2023-10-28T01:39:17.000Z",
-      "width": 1800,
-      "height": 2400,
-      "thumbUrl": "public-photos/Champaign/IMG_7847%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_7847.webp"
-    },
-    {
       "id": "a3e8517e2b0d",
       "album": "Champaign",
       "file": "IMG_7845.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "University Autumn Colours",
+      "description": "Eastern campus view on an autumn evening",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10897777777778,
-        "lng": -88.22553333333333
+        "lat": 40.10898,
+        "lng": -88.22553
       },
       "takenAt": "2023-10-28T01:03:54.000Z",
       "width": 1800,
@@ -4081,12 +4020,16 @@
       "id": "bbfb9de9c110",
       "album": "Champaign",
       "file": "IMG_7842.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Campus Autumn Colours",
+      "description": "Autumn colours with the imposing steeple of the Wesleyan Church in the background",
+      "tags": [
+        "university",
+        "church",
+        "methodist"
+      ],
       "location": {
-        "lat": 40.109944444444444,
-        "lng": -88.22588333333333
+        "lat": 40.10994,
+        "lng": -88.22588
       },
       "takenAt": "2023-10-28T01:01:27.000Z",
       "width": 1800,
@@ -4098,12 +4041,14 @@
       "id": "8b28472f5b3c",
       "album": "Champaign",
       "file": "IMG_7840.HEIC",
-      "title": "",
+      "title": "Illini Union Autumn Colours",
       "description": "",
-      "tags": [],
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10995555555556,
-        "lng": -88.227525
+        "lat": 40.10996,
+        "lng": -88.22752
       },
       "takenAt": "2023-10-28T00:59:00.000Z",
       "width": 1800,
@@ -4115,12 +4060,15 @@
       "id": "4fb3f13676fc",
       "album": "Champaign",
       "file": "IMG_7598.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "St Patrick Catholic Church",
+      "description": "Church and courtyard of St Patrick's",
+      "tags": [
+        "church",
+        "catholic"
+      ],
       "location": {
-        "lat": 40.11443333333334,
-        "lng": -88.21733055555556
+        "lat": 40.11443,
+        "lng": -88.21733
       },
       "takenAt": "2023-09-23T01:41:34.000Z",
       "width": 1800,
@@ -9098,9 +9046,11 @@
       "id": "a1ea0eade243",
       "album": "Champaign",
       "file": "IMG_4025.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Altgeld Hall",
+      "description": "View of Altgeld Hall from the western courtyard",
+      "tags": [
+        "university"
+      ],
       "location": {
         "lat": 40.1091,
         "lng": -88.2287
@@ -9115,12 +9065,14 @@
       "id": "1f470efccb0d",
       "album": "Champaign",
       "file": "IMG_4023.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Henry Admin Building",
+      "description": "Entrance view of the Henry Admin Building",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10836666666667,
-        "lng": -88.2286388888889
+        "lat": 40.10837,
+        "lng": -88.22864
       },
       "takenAt": "2022-06-27T21:42:14.000Z",
       "width": 1800,
@@ -9132,12 +9084,14 @@
       "id": "783c1861bb32",
       "album": "Champaign",
       "file": "IMG_4021.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Main Quad",
+      "description": "Overlooking the Main Quad from Foellinger Hall on an empty summer day",
+      "tags": [
+        "university"
+      ],
       "location": {
         "lat": 40.10625,
-        "lng": -88.22719444444445
+        "lng": -88.22719
       },
       "takenAt": "2022-06-27T21:38:04.000Z",
       "width": 1800,
@@ -9149,12 +9103,12 @@
       "id": "e12d5f47cef2",
       "album": "Champaign",
       "file": "IMG_4019.HEIC",
-      "title": "",
+      "title": "Facade of Foellinger Hall",
       "description": "",
       "tags": [],
       "location": {
-        "lat": 40.10627777777778,
-        "lng": -88.22728055555555
+        "lat": 40.10628,
+        "lng": -88.22728
       },
       "takenAt": "2022-06-27T21:37:31.000Z",
       "width": 1800,
@@ -9166,12 +9120,14 @@
       "id": "0c61a8ea0f8b",
       "album": "Champaign",
       "file": "IMG_4018.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Facade of Foellinger Hall",
+      "description": "Northside view of the Beaux-Arts performance & lecture hall",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10636944444445,
-        "lng": -88.22761666666666
+        "lat": 40.10637,
+        "lng": -88.22762
       },
       "takenAt": "2022-06-27T21:37:07.000Z",
       "width": 1800,
@@ -9183,12 +9139,14 @@
       "id": "e6bd71b387f0",
       "album": "Champaign",
       "file": "IMG_4017.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Interior of Lincoln Hall",
+      "description": "Upstairs view of the ornate Lincoln Hall ceiling",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10661388888889,
-        "lng": -88.22763055555556
+        "lat": 40.10661,
+        "lng": -88.22763
       },
       "takenAt": "2022-06-27T21:36:11.000Z",
       "width": 1800,
@@ -9200,12 +9158,14 @@
       "id": "a0afe995e5cf",
       "album": "Champaign",
       "file": "IMG_4014.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Interior of Lincoln Hall",
+      "description": "Entryway into Lincoln Hall, arguably the most beautiful campus interior with a bust of Lincoln at the centre, whose nose is rubbed for good luck by students before exams",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10659444444445,
-        "lng": -88.22786666666667
+        "lat": 40.10659,
+        "lng": -88.22787
       },
       "takenAt": "2022-06-27T21:34:43.000Z",
       "width": 1800,
@@ -9217,12 +9177,14 @@
       "id": "3d1465f4c15b",
       "album": "Champaign",
       "file": "IMG_4011.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Lincoln Hall",
+      "description": "Built in honour of Abraham Lincoln's birth centenary, this Renaissance Revival hall housed the greatest number of my classes",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10686388888889,
-        "lng": -88.22757777777778
+        "lat": 40.10686,
+        "lng": -88.22758
       },
       "takenAt": "2022-06-27T21:33:45.000Z",
       "width": 1800,
@@ -9234,12 +9196,14 @@
       "id": "958ab5062c3d",
       "album": "Champaign",
       "file": "IMG_4010.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Foellinger Hall",
+      "description": "Beaux-Arts masterpiece bridging the Main Quad and South Quad",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.106991666666666,
-        "lng": -88.227225
+        "lat": 40.10699,
+        "lng": -88.22723
       },
       "takenAt": "2022-06-27T21:33:07.000Z",
       "width": 1800,
@@ -9251,12 +9215,14 @@
       "id": "dab61081a27b",
       "album": "Champaign",
       "file": "IMG_4007.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Davenport Hall",
+      "description": "Neo-classical building reminiscent of a Renaissance style on the eastern edge of the campus Main Quad, housing the Anthropology department",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10740277777778,
-        "lng": -88.22680555555556
+        "lat": 40.1074,
+        "lng": -88.22681
       },
       "takenAt": "2022-06-27T21:32:01.000Z",
       "width": 1800,
@@ -9268,12 +9234,14 @@
       "id": "c07abd7fc505",
       "album": "Champaign",
       "file": "IMG_3999.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Grainger Engineering Library",
+      "description": "Southside view of the largest engineering library in the United States and the location where I spent the most time as an undergraduate student",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.112122222222226,
-        "lng": -88.22771388888889
+        "lat": 40.11212,
+        "lng": -88.22771
       },
       "takenAt": "2022-06-27T21:15:33.000Z",
       "width": 1800,
@@ -9285,12 +9253,14 @@
       "id": "03f590e9db15",
       "album": "Champaign",
       "file": "IMG_3997.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Bardeen Quad",
+      "description": "View of the quad from Engineering Hall with views of the Grainger Library, Campus Instructional Facility, and Talbot Laboratory.",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.11139166666667,
-        "lng": -88.22680555555556
+        "lat": 40.11139,
+        "lng": -88.22681
       },
       "takenAt": "2022-06-27T21:13:10.000Z",
       "width": 1800,
@@ -9299,32 +9269,17 @@
       "fullUrl": "public-photos/Champaign/IMG_3997.webp"
     },
     {
-      "id": "ee00cbd6fbb6",
-      "album": "Champaign",
-      "file": "IMG_3996.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.111161111111116,
-        "lng": -88.22647222222223
-      },
-      "takenAt": "2022-06-27T21:12:41.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_3996%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_3996.webp"
-    },
-    {
       "id": "472151dd83f2",
       "album": "Champaign",
       "file": "IMG_3995.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Boneyard Creek",
+      "description": "The primary water body of the campus surrounded by stone retaining walls and overlooked by the Mechanical Engineering Laboratory",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.11121388888889,
-        "lng": -88.22628888888889
+        "lat": 40.11121,
+        "lng": -88.22629
       },
       "takenAt": "2022-06-27T21:12:10.000Z",
       "width": 1800,
@@ -9333,66 +9288,17 @@
       "fullUrl": "public-photos/Champaign/IMG_3995.webp"
     },
     {
-      "id": "2182bc2756a7",
-      "album": "Champaign",
-      "file": "IMG_3993.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.11004166666667,
-        "lng": -88.22681388888888
-      },
-      "takenAt": "2022-06-27T21:09:09.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_3993%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_3993.webp"
-    },
-    {
-      "id": "91c7c38164ff",
-      "album": "Champaign",
-      "file": "IMG_3991.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.10946944444444,
-        "lng": -88.22650833333334
-      },
-      "takenAt": "2022-06-27T21:08:04.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_3991%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_3991.webp"
-    },
-    {
-      "id": "b4ec1da0bb8e",
-      "album": "Champaign",
-      "file": "IMG_3989.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.109294444444444,
-        "lng": -88.22648611111111
-      },
-      "takenAt": "2022-06-27T21:06:50.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_3989%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_3989.webp"
-    },
-    {
       "id": "5174d232f60e",
       "album": "Champaign",
       "file": "IMG_3988.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Natural History Building",
+      "description": "The site of my very first class, this red-brick Gothic structure is the Main Quad's northeastern entryway",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10890833333333,
-        "lng": -88.22641666666667
+        "lat": 40.10891,
+        "lng": -88.22642
       },
       "takenAt": "2022-06-27T21:06:18.000Z",
       "width": 1800,
@@ -9404,12 +9310,14 @@
       "id": "59a9e217b3a9",
       "album": "Champaign",
       "file": "IMG_3987.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Harker Hall",
+      "description": "The oldest surviving building on the University of Illinois campus, this structure influenced by the Second Empire Style with its Mansard Roof remains one of the few buildings I have never entered.",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.108847222222224,
-        "lng": -88.22670000000001
+        "lat": 40.10885,
+        "lng": -88.2267
       },
       "takenAt": "2022-06-27T21:05:53.000Z",
       "width": 1800,
@@ -9421,12 +9329,14 @@
       "id": "5d8bde5c97a3",
       "album": "Champaign",
       "file": "IMG_3984.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Illini Union Southside View",
+      "description": "Back view of the Illini Union, the student union of the University of Illinois in a Georgian Revival style anchoring the rest of the campus",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.108669444444445,
-        "lng": -88.22756111111111
+        "lat": 40.10867,
+        "lng": -88.22756
       },
       "takenAt": "2022-06-27T20:43:09.000Z",
       "width": 1800,
@@ -9438,11 +9348,13 @@
       "id": "745b2bcf2651",
       "album": "Champaign",
       "file": "IMG_3983.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Henry Admin Building",
+      "description": "A frequently overlooked Classical Revival building with elements resembling Beaux-Arts architeture on the Main Quad",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10866666666667,
+        "lat": 40.10867,
         "lng": -88.2276
       },
       "takenAt": "2022-06-27T20:43:00.000Z",
@@ -9455,12 +9367,14 @@
       "id": "06e970b74d22",
       "album": "Champaign",
       "file": "IMG_3982.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Diana Fountain",
+      "description": "Statue of Diana, the goddess of the hunt, in a courtyard near the Illini Union",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10941388888889,
-        "lng": -88.22781388888889
+        "lat": 40.10941,
+        "lng": -88.22781
       },
       "takenAt": "2022-06-27T20:41:22.000Z",
       "width": 1800,
@@ -9472,12 +9386,14 @@
       "id": "247bffd5de1b",
       "album": "Champaign",
       "file": "IMG_3981.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Interior of Altgeld Hall",
+      "description": "Pre-restoration view of the murals inside Altgeld Hall",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.109675,
-        "lng": -88.22860833333334
+        "lat": 40.10968,
+        "lng": -88.22861
       },
       "takenAt": "2022-06-27T20:39:04.000Z",
       "width": 1800,
@@ -9489,12 +9405,14 @@
       "id": "eec0f7d98ec1",
       "album": "Champaign",
       "file": "IMG_3980.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Interior of Altgeld Hall",
+      "description": "Pre-restoration entryway of Altgeld Hall",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.109611111111114,
-        "lng": -88.22853055555555
+        "lat": 40.10961,
+        "lng": -88.22853
       },
       "takenAt": "2022-06-27T20:38:22.000Z",
       "width": 1800,
@@ -9506,12 +9424,14 @@
       "id": "441f8f578019",
       "album": "Champaign",
       "file": "IMG_3978.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Alma Mater Statue",
+      "description": "A sculptural icon by Lorado Taft symbolising the university's motto of Learning and Labour",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.10993888888889,
-        "lng": -88.22844722222223
+        "lat": 40.10994,
+        "lng": -88.22845
       },
       "takenAt": "2022-06-27T20:35:48.000Z",
       "width": 1800,
@@ -9523,12 +9443,14 @@
       "id": "d18ea1acbf04",
       "album": "Champaign",
       "file": "IMG_3975.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Altgeld Hall",
+      "description": "Pre-restoration summertime view of Altgeld Hall, a Romanesque style reminiscent of a medieval fortress",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.11005277777778,
-        "lng": -88.22858333333333
+        "lat": 40.11005,
+        "lng": -88.22858
       },
       "takenAt": "2022-06-27T20:35:14.000Z",
       "width": 1800,
@@ -11820,66 +11742,17 @@
       "fullUrl": "public-photos/Abu%20Dhabi/IMG_3067.webp"
     },
     {
-      "id": "7165ad89a3cf",
-      "album": "Champaign",
-      "file": "IMG_2893.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.108761111111114,
-        "lng": -88.22726388888888
-      },
-      "takenAt": "2022-03-22T21:53:12.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_2893%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_2893.webp"
-    },
-    {
-      "id": "177d56d1adb3",
-      "album": "Champaign",
-      "file": "IMG_2891.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.108758333333334,
-        "lng": -88.22727222222223
-      },
-      "takenAt": "2022-03-22T21:52:54.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_2891%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_2891.webp"
-    },
-    {
-      "id": "28af1907216b",
-      "album": "Champaign",
-      "file": "IMG_2890.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
-      "location": {
-        "lat": 40.10939444444445,
-        "lng": -88.22798055555556
-      },
-      "takenAt": "2022-03-22T21:50:53.000Z",
-      "width": 1800,
-      "height": 1350,
-      "thumbUrl": "public-photos/Champaign/IMG_2890%40thumb.webp",
-      "fullUrl": "public-photos/Champaign/IMG_2890.webp"
-    },
-    {
       "id": "922675b11cbc",
       "album": "Champaign",
       "file": "IMG_2888.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Altgeld Hall",
+      "description": "Pre-restoration view of Altgeld Hall, a Romanesque style reminiscent of a medieval fortress",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.11014166666667,
-        "lng": -88.22859166666667
+        "lat": 40.11014,
+        "lng": -88.22859
       },
       "takenAt": "2022-03-22T21:26:30.000Z",
       "width": 1800,
@@ -11891,12 +11764,14 @@
       "id": "f8e3f33b3639",
       "album": "Champaign",
       "file": "IMG_2883.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Engineering Hall",
+      "description": "Overlooking the engineering campus, this Renaissance Revival style hall's distinct orange exterior later inspired the university colours",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.11053888888889,
-        "lng": -88.22735555555556
+        "lat": 40.11054,
+        "lng": -88.22736
       },
       "takenAt": "2022-03-22T19:00:48.000Z",
       "width": 1800,
@@ -11908,12 +11783,14 @@
       "id": "1cf564fc7c65",
       "album": "Champaign",
       "file": "IMG_2882.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Illini Union Northside View",
+      "description": "Front view of the Illini Union, the student union of the University of Illinois in a Georgian Revival style anchoring the rest of the campus",
+      "tags": [
+        "university"
+      ],
       "location": {
-        "lat": 40.11048888888889,
-        "lng": -88.22759166666667
+        "lat": 40.11049,
+        "lng": -88.22759
       },
       "takenAt": "2022-03-22T19:00:40.000Z",
       "width": 1800,
@@ -11925,9 +11802,13 @@
       "id": "a67bd1943f92",
       "album": "Champaign",
       "file": "IMG_3146.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Methodist Church Courtuyard",
+      "description": "Situated near the heart of campus, this beautiful Neo-Gothic courtyard was part of the Wesleyan United Methodist Church grounds",
+      "tags": [
+        "church",
+        "methodist",
+        "religious"
+      ],
       "location": null,
       "takenAt": null,
       "width": 1800,
@@ -11939,9 +11820,12 @@
       "id": "40f052848b1d",
       "album": "Champaign",
       "file": "IMG_3147.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Chapel of St John the Divine",
+      "description": "The century-old Episcopalian Church of the campus around Christmastime, with a striking neo-Gothic limestone facade and stone buttresses",
+      "tags": [
+        "church",
+        "anglican"
+      ],
       "location": null,
       "takenAt": null,
       "width": 1800,
@@ -11953,9 +11837,11 @@
       "id": "6bfab47dc911",
       "album": "Champaign",
       "file": "IMG_4075.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Altgeld Hall",
+      "description": "Post-restoration view of Altgeld Hall",
+      "tags": [
+        "university"
+      ],
       "location": null,
       "takenAt": null,
       "width": 1800,
@@ -11967,9 +11853,11 @@
       "id": "f38a2c50f613",
       "album": "Champaign",
       "file": "IMG_4076.HEIC",
-      "title": "",
-      "description": "",
-      "tags": [],
+      "title": "Altgeld Hall and Alma Mater",
+      "description": "Post-restoration view of Altgeld Hall and Alma Mater",
+      "tags": [
+        "university"
+      ],
       "location": null,
       "takenAt": null,
       "width": 1800,
@@ -19449,7 +19337,7 @@
     },
     {
       "name": "Champaign",
-      "count": 46,
+      "count": 35,
       "cover": "public-photos/Champaign/IMG_0721%40thumb.webp"
     },
     {
