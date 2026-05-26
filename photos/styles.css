@@ -319,13 +319,47 @@ main {
   margin-bottom: .25rem;
   color: var(--text);
 }
-.album-preview-count {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  margin-bottom: .9rem;
+/* (album preview count removed — globe view no longer shows per-album counts) */
+
+/* ---------- globe pins ---------- */
+.globe-pin {
+  position: relative;
+  width: 22px;
+  height: 30px;
+  /* Anchor the pin's pointed tip at the geolocation. */
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  pointer-events: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55));
+  transition: transform .15s var(--ease);
 }
+.globe-pin:hover {
+  transform: translate(-50%, -100%) translateY(-2px) scale(1.08);
+  z-index: 10;
+}
+.globe-pin svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.globe-pin-label {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1A1714;
+  border: 1px solid rgba(201, 169, 97, 0.45);
+  color: var(--text);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: .25rem .6rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s var(--ease);
+}
+.globe-pin:hover .globe-pin-label { opacity: 1; }
 .album-preview-open {
   font-family: var(--sans);
   font-size: 12px;

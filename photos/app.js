@@ -145,7 +145,7 @@ function renderMap() {
   const pins = albumPins();
   return `
     <h2 class="view-title">Map</h2>
-    <p class="view-sub">${pins.length} album${pins.length === 1 ? "" : "s"} placed on the globe</p>
+    <p class="view-sub">Hover or click a pin to preview the album</p>
     <div id="globe-wrap">
       <div class="map-hint">Drag to rotate · Scroll to zoom · Click a pin to preview</div>
       <div id="album-preview" class="album-preview" hidden>
@@ -153,7 +153,6 @@ function renderMap() {
         <img id="album-preview-img" alt="" />
         <div class="album-preview-body">
           <h3 id="album-preview-title">—</h3>
-          <p id="album-preview-count" class="album-preview-count">—</p>
           <button id="album-preview-open" class="album-preview-open">Open album →</button>
         </div>
       </div>
@@ -177,22 +176,28 @@ async function mountGlobe() {
   // Wait one frame so wrap's real layout dimensions are known.
   await new Promise((r) => requestAnimationFrame(r));
 
+  const PIN_SVG = `
+    <svg viewBox="0 0 24 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12 0 C5.4 0 0 5.4 0 12 c0 9 12 20 12 20 s12-11 12-20 C24 5.4 18.6 0 12 0 z"
+            fill="#c2554d" stroke="#1a0a0a" stroke-width="1.2" stroke-linejoin="round"/>
+      <circle cx="12" cy="12" r="4" fill="#f3e6d4"/>
+    </svg>`;
+
   const globe = window.Globe()(wrap)
     .globeImageUrl("https://unpkg.com/three-globe@2.31.0/example/img/earth-blue-marble.jpg")
     .backgroundColor("#14110F")
-    .pointsData(pins)
-    .pointLat("lat")
-    .pointLng("lng")
-    .pointAltitude(0.015)
-    .pointRadius(0.55)
-    .pointColor(() => "#C9A961")
-    .pointLabel((d) => `
-      <div style="font-family:'Spectral',Georgia,serif;background:#1A1714;color:#EDE6D6;padding:8px 12px;border:1px solid rgba(201,169,97,0.4);">
-        <div style="font-style:italic;margin-bottom:2px;">${escapeHtml(d.album)}</div>
-        <div style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#C9A961;">${d.count} photo${d.count === 1 ? "" : "s"}</div>
-      </div>
-    `)
-    .onPointClick((d) => showAlbumPreview(d));
+    .htmlElementsData(pins)
+    .htmlLat("lat")
+    .htmlLng("lng")
+    .htmlAltitude(0.01)
+    .htmlElement((d) => {
+      const el = document.createElement("div");
+      el.className = "globe-pin";
+      el.title = d.album;
+      el.innerHTML = PIN_SVG + `<span class="globe-pin-label">${escapeHtml(d.album)}</span>`;
+      el.addEventListener("click", (e) => { e.stopPropagation(); showAlbumPreview(d); });
+      return el;
+    });
 
   const resize = () => { globe.width(wrap.clientWidth); globe.height(wrap.clientHeight); };
   resize();
@@ -219,8 +224,6 @@ function showAlbumPreview(pin) {
   document.getElementById("album-preview-img").src = pin.preview.thumbUrl;
   document.getElementById("album-preview-img").alt = pin.album;
   document.getElementById("album-preview-title").textContent = pin.album;
-  document.getElementById("album-preview-count").textContent =
-    `${pin.count} geolocated photo${pin.count === 1 ? "" : "s"}`;
   document.getElementById("album-preview-open").dataset.album = pin.album;
   panel.hidden = false;
 }
