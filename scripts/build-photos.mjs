@@ -128,14 +128,19 @@ async function buildVariants(album, file) {
 
 async function readTakenAt(album, file) {
   const src = path.join(SRC_PHOTOS, album, file);
+  let takenAt = null, location = null;
   try {
-    const ex = await exifr.parse(src, ["DateTimeOriginal", "CreateDate", "GPSLatitude", "GPSLongitude"]);
-    return {
-      takenAt: ex?.DateTimeOriginal?.toISOString?.() ?? ex?.CreateDate?.toISOString?.() ?? null,
-      location: (ex?.GPSLatitude != null && ex?.GPSLongitude != null)
-        ? { lat: ex.GPSLatitude, lng: ex.GPSLongitude } : null,
-    };
-  } catch { return { takenAt: null, location: null }; }
+    const ex = await exifr.parse(src, ["DateTimeOriginal", "CreateDate"]);
+    takenAt = ex?.DateTimeOriginal?.toISOString?.() ?? ex?.CreateDate?.toISOString?.() ?? null;
+  } catch {}
+  try {
+    // exifr.gps() returns decimal {latitude, longitude}, handling DMS conversion
+    const gps = await exifr.gps(src);
+    if (gps && Number.isFinite(gps.latitude) && Number.isFinite(gps.longitude)) {
+      location = { lat: gps.latitude, lng: gps.longitude };
+    }
+  } catch {}
+  return { takenAt, location };
 }
 
 function normTags(t) {
@@ -163,6 +168,10 @@ async function main() {
       const m = meta[key] || {};
       const exif = await readTakenAt(album, file);
 
+      // Only accept locations with numeric lat/lng — guard against DMS arrays or other malformed shapes.
+      const pickLoc = (loc) =>
+        loc && Number.isFinite(loc.lat) && Number.isFinite(loc.lng) ? { lat: loc.lat, lng: loc.lng } : null;
+
       photos.push({
         id: sha1(key).slice(0, 12),
         album,
@@ -170,7 +179,7 @@ async function main() {
         title: m.title || "",
         description: m.description || "",
         tags: normTags(m.tags),
-        location: m.location || exif.location || null,
+        location: pickLoc(m.location) || pickLoc(exif.location) || null,
         takenAt: m.takenAt || exif.takenAt || null,
         width: r.width,
         height: r.height,
