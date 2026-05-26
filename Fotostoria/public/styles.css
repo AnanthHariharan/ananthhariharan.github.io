@@ -526,3 +526,28 @@ main {
   }
   .lightbox-meta { border-left: none; border-top: 1px solid var(--rule); }
 }
+
+/* ---------- star toggle ---------- */
+.star-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  padding: .45rem .8rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.star-toggle:hover { color: var(--ink); border-color: var(--ink); }
+.star-toggle .star-icon { font-size: 1rem; line-height: 1; }
+.star-toggle.is-starred {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(107, 79, 42, 0.08);
+}

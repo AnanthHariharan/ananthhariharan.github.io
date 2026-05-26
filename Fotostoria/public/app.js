@@ -61,7 +61,8 @@ function renderAlbums() {
   }
 
   const cards = state.albums.map((album) => {
-    const cover = state.photos.find((p) => p.album === album.name);
+    const inAlbum = state.photos.filter((p) => p.album === album.name);
+    const cover = inAlbum.find((p) => p.starred) || inAlbum[0];
     const coverUrl = cover ? cover.thumbUrl : "";
     return `
       <button class="album-card" data-album="${escapeAttr(album.name)}">
@@ -269,6 +270,21 @@ const fAlbum = document.getElementById("meta-album");
 const fFile = document.getElementById("meta-file");
 const fTaken = document.getElementById("meta-taken");
 const status = document.getElementById("meta-status");
+const fStar = document.getElementById("meta-star");
+let currentStarred = false;
+
+function renderStar() {
+  fStar.setAttribute("aria-pressed", currentStarred ? "true" : "false");
+  fStar.classList.toggle("is-starred", currentStarred);
+  fStar.querySelector(".star-icon").textContent = currentStarred ? "★" : "☆";
+  fStar.querySelector(".star-label").textContent = currentStarred
+    ? "Album cover"
+    : "Star as album cover";
+}
+fStar.addEventListener("click", () => {
+  currentStarred = !currentStarred;
+  renderStar();
+});
 
 // ---------- Tag chip widget ----------
 const tagChipsEl = document.getElementById("tag-chips");
@@ -408,6 +424,8 @@ function openLightbox(id) {
   tagInputEl.value = "";
   tagSuggestionsEl.hidden = true;
   suggestionIdx = -1;
+  currentStarred = !!photo.starred;
+  renderStar();
   fLoc.value = photo.location ? `${photo.location.lat.toFixed(5)}, ${photo.location.lng.toFixed(5)}` : "";
   fAlbum.textContent = photo.album;
   fFile.textContent = photo.file;
@@ -457,6 +475,7 @@ async function saveMetadata() {
       description: fDesc.value,
       tags,
       location,
+      starred: currentStarred,
     }),
   });
 
@@ -470,6 +489,13 @@ async function saveMetadata() {
   photo.description = updated.description || "";
   photo.tags = updated.tags || [];
   photo.location = updated.location || null;
+  photo.starred = !!updated.starred;
+  // Enforce "one starred per album" client-side so the album grid updates immediately
+  if (photo.starred) {
+    for (const p of state.photos) {
+      if (p !== photo && p.album === photo.album) p.starred = false;
+    }
+  }
   status.textContent = "Saved";
   setTimeout(() => { if (status.textContent === "Saved") status.textContent = ""; }, 1500);
 }

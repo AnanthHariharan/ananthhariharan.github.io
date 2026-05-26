@@ -177,6 +177,7 @@ async function buildIndex() {
         tags: meta.tags || [],
         location: meta.location || null,
         takenAt: meta.takenAt || null,
+        starred: !!meta.starred,
       });
     }
   }
@@ -225,7 +226,7 @@ app.put("/api/photos/:album/:file/metadata", async (req, res) => {
 
   const metadata = await readMetadata();
   const current = metadata[id] || {};
-  const { title, description, tags, location } = req.body || {};
+  const { title, description, tags, location, starred } = req.body || {};
 
   const next = { ...current };
   if (typeof title === "string") next.title = title.trim();
@@ -243,9 +244,25 @@ app.put("/api/photos/:album/:file/metadata", async (req, res) => {
     next.location = { lat: location.lat, lng: location.lng };
   }
 
+  // Star: at most one photo starred per album.
+  if (typeof starred === "boolean") {
+    if (starred) {
+      next.starred = true;
+      const prefix = `${album}/`;
+      for (const key of Object.keys(metadata)) {
+        if (key !== id && key.startsWith(prefix) && metadata[key]?.starred) {
+          metadata[key] = { ...metadata[key] };
+          delete metadata[key].starred;
+        }
+      }
+    } else {
+      delete next.starred;
+    }
+  }
+
   metadata[id] = next;
   await writeMetadata(metadata);
-  res.json({ id, ...next });
+  res.json({ id, ...next, starred: !!next.starred });
 });
 
 app.listen(PORT, () => {

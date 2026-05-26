@@ -181,6 +181,7 @@ async function main() {
         tags: normTags(m.tags),
         location: pickLoc(m.location) || pickLoc(exif.location) || null,
         takenAt: m.takenAt || exif.takenAt || null,
+        starred: !!m.starred,
         width: r.width,
         height: r.height,
         thumbUrl: urlFor(album, file, "thumb"),
@@ -199,13 +200,14 @@ async function main() {
     return b.takenAt.localeCompare(a.takenAt);
   });
 
-  // Albums with counts and cover
+  // Albums with counts and cover (starred photo wins, else first by date)
   const albumIndex = albums.map((name) => {
     const inAlbum = photos.filter((p) => p.album === name);
+    const cover = inAlbum.find((p) => p.starred) || inAlbum[0];
     return {
       name,
       count: inAlbum.length,
-      cover: inAlbum[0]?.thumbUrl || null,
+      cover: cover?.thumbUrl || null,
     };
   });
 
