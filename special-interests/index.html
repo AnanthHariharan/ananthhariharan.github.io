@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Notes on architecture, the visual arts, literature, philosophy, and history — long-form pieces from Ananth Hariharan." />
+  <meta name="description" content="A small museum-catalog mini-site on architecture, the visual arts, literature, philosophy, and history." />
   <title>Special Interests — Ananth Hariharan</title>
 
   <link rel="icon" href="../assets/images/ah.png" type="image/png" />
@@ -13,87 +13,83 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/special-interests.css" />
 </head>
 
-<body>
+<body class="si">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" data-header>
-    <div class="header-inner">
-      <div class="brand-wrap">
-        <a href="../" class="brand" aria-label="Home">
-          <img class="brand-mark" src="../assets/images/ah-pin.png" alt="Ananth Hariharan" />
-        </a>
-      </div>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="../#about">About</a></li>
-          <li><a href="../#writing">Writing</a></li>
-          <li><a href="../#photography">Photography</a></li>
-          <li><a href="../">← Back to home</a></li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+  <header class="si-header">
+    <div class="si-header-inner">
+      <a class="si-back" href="../">← Back to home</a>
+      <span class="si-imprint">Special Interests · Cat. №&nbsp;01</span>
     </div>
   </header>
 
   <main id="main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Special interests</p>
-        <h1 class="display">Out beyond the work</h1>
-        <p class="lede">
-          A small set of long-form pieces on the subjects I keep returning to:
-          architecture, the visual arts, literature, philosophy, and history.
-          Written slowly, illustrated where I have a photograph for it.
+    <section class="si-hero">
+      <div class="si-container">
+        <p class="si-eyebrow">Special Interests</p>
+        <h1 class="si-title">A small <em>museum</em> of preoccupations.</h1>
+        <p class="si-deck">
+          Long-form pieces on the subjects I keep returning to — architecture,
+          the visual arts, literature, philosophy, and history. Written slowly,
+          arranged as one would arrange the rooms of a quiet provincial museum.
         </p>
       </div>
     </section>
 
-    <section class="essay">
-      <div class="container">
-        <ul class="hub-grid" style="list-style:none;padding:0;">
+    <section class="si-essay">
+      <div class="si-container">
+        <p class="dim">
+          Each entry below is a wing in its own right. The Architecture wing is
+          open; the others are being prepared. Visit at your own pace.
+        </p>
+
+        <ul class="si-rooms">
           <li>
-            <a class="hub-card is-live" href="./architecture.html">
-              <div class="hub-card-eyebrow">Essay · live</div>
+            <a class="si-room is-live" href="./architecture/">
+              <div class="si-room-num">Wing I</div>
               <h3>Architecture</h3>
-              <p>The major Western styles — Classical, Romanesque, Gothic, Renaissance, Baroque, and the revivals — read through their motifs and their philosophies.</p>
-              <div class="hub-meta">Read the piece →</div>
+              <p class="si-room-sub">Four lineages, in stone and brick.</p>
+              <p>The Classical lineage, the Medieval lineage, the Eclectic Catalog of the Victorians, and the Craft &amp; Period revivals — each given its own room.</p>
+              <div class="si-room-meta">Enter the wing →</div>
             </a>
           </li>
           <li>
-            <div class="hub-card is-soon">
-              <div class="hub-card-eyebrow">Coming</div>
-              <h3>Visual arts</h3>
+            <div class="si-room is-soon">
+              <div class="si-room-num">Wing II</div>
+              <h3>The Visual Arts</h3>
+              <p class="si-room-sub">Forthcoming.</p>
               <p>On what painting does that photography cannot, and where the two argue.</p>
-              <div class="hub-meta">In draft</div>
+              <div class="si-room-meta">In preparation</div>
             </div>
           </li>
           <li>
-            <div class="hub-card is-soon">
-              <div class="hub-card-eyebrow">Coming</div>
+            <div class="si-room is-soon">
+              <div class="si-room-num">Wing III</div>
               <h3>Literature</h3>
-              <p>Reading notes — mostly Sanskrit and the Greeks, occasionally the moderns.</p>
-              <div class="hub-meta">In draft</div>
+              <p class="si-room-sub">Forthcoming.</p>
+              <p>Reading notes — Sanskrit, the Greeks, and the occasional modern.</p>
+              <div class="si-room-meta">In preparation</div>
             </div>
           </li>
           <li>
-            <div class="hub-card is-soon">
-              <div class="hub-card-eyebrow">Coming</div>
+            <div class="si-room is-soon">
+              <div class="si-room-num">Wing IV</div>
               <h3>Philosophy</h3>
-              <p>Indian philosophy mostly. The places where it overlaps with the work I do is what keeps pulling me back.</p>
-              <div class="hub-meta">In draft</div>
+              <p class="si-room-sub">Forthcoming.</p>
+              <p>Indian philosophy, mostly. And the places where it speaks to the work I do.</p>
+              <div class="si-room-meta">In preparation</div>
             </div>
           </li>
           <li>
-            <div class="hub-card is-soon">
-              <div class="hub-card-eyebrow">Coming</div>
+            <div class="si-room is-soon">
+              <div class="si-room-num">Wing V</div>
               <h3>History</h3>
+              <p class="si-room-sub">Forthcoming.</p>
               <p>The long arcs — empires, technologies, ideas — and how they get told.</p>
-              <div class="hub-meta">In draft</div>
+              <div class="si-room-meta">In preparation</div>
             </div>
           </li>
         </ul>
@@ -101,13 +97,13 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span data-year></span> Ananth Hariharan</p>
-      <p class="footer-meta">Built by hand. Set in Spectral.</p>
+  <footer class="si-footer">
+    <div class="si-footer-inner">
+      <span>© <span data-year>2026</span> Ananth Hariharan</span>
+      <span>Set in Spectral</span>
     </div>
   </footer>
 
-  <script src="../assets/js/script.js"></script>
+  <script>document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());</script>
 </body>
 </html>
