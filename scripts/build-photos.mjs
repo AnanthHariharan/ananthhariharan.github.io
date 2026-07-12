@@ -231,7 +231,13 @@ async function main() {
     albumLocations,
   };
 
-  await fs.writeFile(path.join(OUT_DIR, "photos.json"), JSON.stringify(manifest, null, 2));
+  await fs.writeFile(path.join(OUT_DIR, "photos.json"), JSON.stringify(manifest));
+
+  // Small standalone manifest for the homepage teaser, so it doesn't need to
+  // fetch the full (400KB+) photos.json just to show a handful of pictures.
+  const featured = photos.filter((p) => p.tags.includes("featured"));
+  const teaserPicks = (featured.length > 0 ? featured : photos).slice(0, 6);
+  await fs.writeFile(path.join(OUT_DIR, "featured.json"), JSON.stringify({ photos: teaserPicks }));
 
   process.stdout.write("\n");
   console.log(`Done. ${total} photos across ${albums.length} albums. ${built} variants (re)built.`);

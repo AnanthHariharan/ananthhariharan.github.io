@@ -11,7 +11,7 @@
 
   --text:         #EDE6D6;
   --text-dim:     #A39B8B;
-  --text-mute:    #6F6859;
+  --text-mute:    #8A8272;
 
   --accent:       #C9A961;
   --accent-soft:  rgba(201, 169, 97, 0.18);
@@ -21,7 +21,6 @@
   --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --max:       780px;
-  --max-wide:  1080px;
 
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -76,7 +75,7 @@ body {
   border-bottom-color: var(--rule);
 }
 .header-inner {
-  max-width: var(--max-wide);
+  max-width: var(--max);
   margin: 0 auto;
   padding: 1rem 1.5rem;
   display: flex;
@@ -892,7 +891,7 @@ img.brand-mark {
     overflow: hidden;
     transition: max-height .35s var(--ease);
   }
-  .site-nav.is-open { max-height: 400px; }
+  .site-nav.is-open { max-height: 80vh; overflow-y: auto; }
   .site-nav ul {
     flex-direction: column;
     gap: 0;

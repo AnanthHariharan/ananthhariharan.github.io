@@ -9,7 +9,7 @@
 
   --text:         #EDE6D6;
   --text-dim:     #A39B8B;
-  --text-mute:    #6F6859;
+  --text-mute:    #8A8272;
 
   --accent:       #C9A961;
   --accent-soft:  rgba(201, 169, 97, 0.18);
@@ -154,7 +154,10 @@ main {
 .album-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .album-cover {
   aspect-ratio: 4 / 3;
-  background: var(--bg-alt);
+  background:
+    linear-gradient(135deg, rgba(201,169,97,0.05), rgba(201,169,97,0)),
+    repeating-linear-gradient(45deg, rgba(237,230,214,0.025) 0 8px, transparent 8px 16px),
+    var(--bg-alt);
   overflow: hidden;
 }
 .album-cover img {
@@ -188,7 +191,10 @@ main {
   padding: 0;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: var(--surface);
+  background:
+    linear-gradient(135deg, rgba(201,169,97,0.05), rgba(201,169,97,0)),
+    repeating-linear-gradient(45deg, rgba(237,230,214,0.025) 0 8px, transparent 8px 16px),
+    var(--surface);
   border: 1px solid var(--rule);
   transition: border-color .25s var(--ease);
 }

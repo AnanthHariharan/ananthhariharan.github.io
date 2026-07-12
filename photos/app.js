@@ -63,10 +63,10 @@ function renderAlbums() {
       ${renderPhotoGrid(albumPhotos)}
     `;
   }
-  const cards = state.albums.map((album) => `
+  const cards = state.albums.map((album, i) => `
     <button class="album-card" data-album="${escapeAttr(album.name)}">
       <div class="album-cover">
-        ${album.cover ? `<img src="${album.cover}" loading="lazy" alt="" />` : ""}
+        ${album.cover ? `<img src="${album.cover}" loading="${i < 4 ? "eager" : "lazy"}" alt="" />` : ""}
       </div>
       <h3 class="album-name">${escapeHtml(album.name)}</h3>
       <div class="album-count">${album.count} photo${album.count === 1 ? "" : "s"}</div>
@@ -81,9 +81,9 @@ function renderAlbums() {
 
 function renderPhotoGrid(photos) {
   if (photos.length === 0) return emptyState("No photos here yet.");
-  const tiles = photos.map((p) => `
+  const tiles = photos.map((p, i) => `
     <button class="photo-tile" data-photo-id="${escapeAttr(p.id)}">
-      <img src="${p.thumbUrl}" loading="lazy" alt="${escapeAttr(p.title || p.file)}" />
+      <img src="${p.thumbUrl}" loading="${i < 8 ? "eager" : "lazy"}" alt="${escapeAttr(p.title || p.file)}" />
       ${p.title ? `<span class="caption">${escapeHtml(p.title)}</span>` : ""}
     </button>
   `).join("");

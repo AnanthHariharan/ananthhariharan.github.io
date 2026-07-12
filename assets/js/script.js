@@ -75,20 +75,22 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     const action = form.getAttribute('action') || '';
     const configured = action && !action.includes('YOUR_FORM_ID');
 
-    submit.disabled = true;
-    status.classList.remove('is-error', 'is-ok');
-    status.textContent = 'Sending…';
-
     if (!configured) {
       // Fallback: open the user's mail client with prefilled message.
+      // No "Sending…" flash here — nothing is sent over the network yet.
+      submit.disabled = true;
+      status.classList.remove('is-error', 'is-ok');
+      status.textContent = 'Opening your email client…';
       const subject = encodeURIComponent(`Hello from ${name}`);
       const body = encodeURIComponent(`${message}\n\n— ${name} <${email}>`);
       window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${body}`;
-      status.classList.add('is-ok');
-      status.textContent = 'Opening your email client…';
       submit.disabled = false;
       return;
     }
+
+    submit.disabled = true;
+    status.classList.remove('is-error', 'is-ok');
+    status.textContent = 'Sending…';
 
     try {
       const res = await fetch(action, {
@@ -115,15 +117,20 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   if (!grid) return;
 
   try {
-    const res = await fetch('./public-photos/photos.json', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('no manifest');
-    const data = await res.json();
-    const all = data.photos || [];
-    if (all.length === 0) return;
-
-    // Featured = photos tagged "featured", else fallback to first 6 by takenAt desc.
-    const featured = all.filter((p) => (p.tags || []).includes('featured'));
-    const picks = (featured.length > 0 ? featured : all).slice(0, 6);
+    // Small standalone manifest with just the teaser picks, so the homepage
+    // doesn't have to fetch the full (400KB+) photo library manifest.
+    let res = await fetch('./public-photos/featured.json', { cache: 'no-cache' });
+    let picks;
+    if (res.ok) {
+      picks = (await res.json()).photos || [];
+    } else {
+      res = await fetch('./public-photos/photos.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('no manifest');
+      const all = (await res.json()).photos || [];
+      const featured = all.filter((p) => (p.tags || []).includes('featured'));
+      picks = (featured.length > 0 ? featured : all).slice(0, 6);
+    }
+    if (picks.length === 0) return;
 
     // Mosaic layout: tile 0 tall, tile 3 wide, others 1x1 — matches existing CSS modifiers.
     const layout = ['photo-tile--tall', '', '', 'photo-tile--wide', '', ''];
@@ -131,7 +138,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     grid.innerHTML = picks
       .map((p, i) => `
         <figure class="photo-tile ${layout[i] || ''}" data-photo='${escapeJsonAttr(JSON.stringify({ src: p.fullUrl, title: p.title, album: p.album }))}'>
-          <img src="${p.thumbUrl}" alt="${escapeAttr(p.title || p.album)}" loading="lazy" />
+          <img src="${p.thumbUrl}" alt="${escapeAttr(p.title || p.album)}" loading="${i === 0 ? 'eager' : 'lazy'}" ${i === 0 ? 'fetchpriority="high"' : ''} />
         </figure>
       `)
       .join('');
