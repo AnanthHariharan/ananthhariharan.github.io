@@ -1,0 +1,447 @@
+/* ==========================================================================
+   Commonplace book — layout for the homepage and the inner index pages.
+   Everything here draws on the tokens in classical.css; no literal colors,
+   fonts or shadows. Load after classical.css.
+   ========================================================================== */
+
+/* — page shell — */
+
+/* The socials sit in the sidebar column but are a sibling of it, so that the
+   mobile collapse can send them to the foot of the page with `order`. The
+   1fr/auto row pair is what pins them to the bottom on wide screens. */
+.cb-page {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+
+/* — sidebar — */
+
+.cb-sidebar {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding: 44px 26px 0;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-divider);
+}
+
+.cb-portrait {
+  width: 150px;
+  height: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+.cb-name {
+  margin: 0 0 4px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.cb-standfirst {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-neutral-700);
+}
+
+.cb-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--color-divider);
+}
+
+/* nav */
+
+.cb-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.cb-nav a {
+  align-self: flex-start;
+  color: var(--color-neutral-800);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.cb-nav a[aria-current='page'] {
+  border-bottom-color: var(--color-accent);
+}
+
+.cb-nav a:hover {
+  color: var(--color-accent-700);
+  border-bottom-color: var(--color-accent);
+}
+
+.cb-nav a:active {
+  color: var(--color-accent-700);
+  border-bottom-color: var(--color-accent-600);
+}
+
+/* socials */
+
+.cb-social {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: auto;
+  padding: 34px 26px 44px;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.cb-social a {
+  align-self: flex-start;
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent-300);
+  padding-bottom: 2px;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.cb-social a:hover {
+  color: var(--color-accent-700);
+  border-bottom-color: var(--color-accent);
+}
+
+.cb-social a:active {
+  color: var(--color-accent-700);
+  border-bottom-color: var(--color-accent-600);
+}
+
+/* — right column — */
+
+.cb-main {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  padding: 52px 60px 56px;
+}
+
+.cb-title {
+  margin: 0 0 10px;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 46px;
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: var(--color-text);
+}
+
+.cb-deck {
+  margin: 0 0 40px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-neutral-700);
+  max-width: 60ch;
+}
+
+/* — the index — */
+
+.cb-index {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 0 26px;
+  font-feature-settings: 'tnum';
+}
+
+.cb-index-rule {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--color-divider);
+  margin-bottom: 26px;
+}
+
+/* The single warm rule that opens the list. */
+.cb-index-rule--first {
+  background: var(--color-accent-300);
+}
+
+.cb-date {
+  margin: 0 0 26px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-neutral-600);
+}
+
+.cb-date--current {
+  color: var(--color-accent-700);
+}
+
+.cb-entry {
+  margin: 0 0 26px;
+}
+
+.cb-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cb-entry h2,
+.cb-entry h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: var(--color-text);
+}
+
+/* Entries carrying a photo strip give the title a little more air. */
+.cb-entry--plates h3 {
+  margin-bottom: 12px;
+}
+
+.cb-entry h2 a,
+.cb-entry h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.cb-entry h2 a:hover,
+.cb-entry h3 a:hover {
+  color: var(--color-accent-700);
+  border-bottom-color: var(--color-accent);
+}
+
+.cb-entry h2 a:active,
+.cb-entry h3 a:active {
+  border-bottom-color: var(--color-accent-600);
+}
+
+.cb-body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-neutral-800);
+  max-width: 62ch;
+  text-align: justify;
+  /* Tabular figures belong to the date column, not to running prose. */
+  font-feature-settings: normal;
+}
+
+.cb-body + .cb-tags {
+  margin-top: 14px;
+}
+
+/* tags */
+
+.cb-tags {
+  display: flex;
+  gap: 10px;
+}
+
+.cb-tags .tag {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1;
+  padding: 5px 10px;
+  border: 1px solid var(--color-neutral-300);
+  color: var(--color-neutral-700);
+}
+
+.cb-tags .tag-outline {
+  border-color: var(--color-accent-300);
+  color: var(--color-accent-700);
+}
+
+/* photo strip */
+
+.cb-plates {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cb-plates a {
+  display: block;
+  border: 1px solid var(--color-divider);
+  transition: border-color 150ms ease;
+}
+
+.cb-plates a:hover {
+  border-color: var(--color-accent);
+}
+
+.cb-plates a:active {
+  border-color: var(--color-accent-600);
+}
+
+.cb-plates img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.cb-plates-note {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-neutral-700);
+}
+
+.cb-plates-note a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent-300);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.cb-plates-note a:hover {
+  color: var(--color-accent-700);
+  border-bottom-color: var(--color-accent);
+}
+
+.cb-plates-note a:active {
+  border-bottom-color: var(--color-accent-600);
+}
+
+/* — empty state, for the pages that have no entries yet — */
+
+.cb-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-neutral-600);
+}
+
+/* — focus, everywhere — */
+
+a:focus-visible,
+img:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Responsive — below ~860px the grid collapses to one column: the sidebar
+   becomes a stacked header, and each entry's date sits above its title.
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .cb-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    min-height: 0;
+  }
+
+  .cb-sidebar,
+  .cb-social,
+  .cb-main {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .cb-sidebar {
+    order: 1;
+    gap: 22px;
+    padding: 32px 26px 26px;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .cb-portrait {
+    width: 96px;
+  }
+
+  .cb-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 11px 20px;
+  }
+
+  /* Socials leave the sidebar column and sit at the foot of the page. */
+  .cb-social {
+    order: 3;
+    margin-top: 0;
+    padding: 26px;
+    border-right: 0;
+    border-top: 1px solid var(--color-divider);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 9px 20px;
+  }
+
+  .cb-main {
+    order: 2;
+    padding: 34px 26px 40px;
+  }
+
+  .cb-index {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .cb-index-rule {
+    margin-bottom: 22px;
+  }
+
+  .cb-date {
+    margin-bottom: 8px;
+  }
+
+  .cb-entry {
+    margin-bottom: 22px;
+  }
+
+  .cb-plates {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Justified text needs a comfortable measure; below this it rivers. */
+@media (max-width: 600px) {
+  .cb-body {
+    text-align: left;
+  }
+
+  .cb-title {
+    font-size: 36px;
+  }
+
+  .cb-entry h2,
+  .cb-entry h3 {
+    font-size: 24px;
+  }
+}
