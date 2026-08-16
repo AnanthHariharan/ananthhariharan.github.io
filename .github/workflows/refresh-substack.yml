@@ -1,0 +1,46 @@
+# Refresh the Substack feed and rebuild the homepage and essays indexes.
+#
+# Runs weekly, and on demand from the Actions tab. If the feed has not changed
+# the run is a no-op — nothing is committed, so Pages does not redeploy.
+
+name: Refresh Substack feed
+
+on:
+  schedule:
+    # Mondays, 09:00 UTC. Cron on GitHub runs in UTC and can lag a scheduled
+    # time by a few minutes under load; nothing here is time-sensitive.
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+# Only what the commit needs.
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-substack
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch the feed and rebuild the indexes
+        run: node scripts/build-index.mjs --fetch
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- data/substack.json index.html essays.html; then
+            echo "No new posts — nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/substack.json index.html essays.html
+          git commit -m "Refresh Substack entries"
+          git push
