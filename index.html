@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Holding page. The site itself lives on the `main` branch, untouched.
+       To bring it back, point Pages at main:
+         gh api -X PUT repos/AnanthHariharan/ananthhariharan.github.io/pages \
+           -f 'source[branch]=main' -f 'source[path]=/'
+       Kept out of search results while it stands, so the real pages keep
+       their place in the index. -->
+  <meta name="robots" content="noindex" />
+  <title>Ananth Hariharan</title>
+
+  <link rel="icon" href="https://ananthhariharan.github.io/assets/images/ah.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --color-bg: #f3f2f2;
+      --color-text: #201f1d;
+      --color-neutral-700: #605d5d;
+      --color-accent-300: #facb8d;
+      --font-heading: "Cormorant Garamond", Georgia, serif;
+      --font-body: "Lora", Georgia, serif;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 40px;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+    }
+
+    main { max-width: 30rem; }
+
+    h1 {
+      margin: 0 0 18px;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: normal;
+    }
+
+    hr {
+      height: 1px;
+      border: 0;
+      margin: 0 0 18px;
+      background: var(--color-accent-300);
+    }
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.75;
+      font-style: italic;
+      color: var(--color-neutral-700);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Ananth Hariharan</h1>
+    <hr />
+    <p>The site is offline for the moment.</p>
+  </main>
+</body>
+</html>
